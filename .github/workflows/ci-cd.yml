@@ -50,12 +50,12 @@ jobs:
         run: npm run build
 
       - name: AWS Elastic Beanstalk Deploy
-        uses: einaregilsson/beanstalk-deploy@v20
+        uses: einaregilsson/beanstalk-deploy@v21
         with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           region: ${{ secrets.AWS_REGION }}
           application_name: 'nest-js-application'
           environment_name: 'nest-js-demo-env'
           version_label: 'v${{ github.sha }}'
-          zip_file: 'build.zip'
+          deployment_package: nest-app-build.zip

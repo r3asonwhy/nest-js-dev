@@ -50,7 +50,7 @@ jobs:
         run: npm run build
 
       - name: Package the build into a zip file
-        run: zip -r nest-app-build.zip ./dist/*
+        run: zip -r nest-app-build.zip ./dist/* ./package.json ./Procfile
 
       - name: AWS Elastic Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v21

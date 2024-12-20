@@ -64,8 +64,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: 'node-js'
-          environment_name: 'node-js-dev-env'
+          application_name: 'nest-js-application'
+          environment_name: 'nest-js-demo-env'
           version_label: ${{ github.sha }}
-          region: eu-west-2
+          region: ${{ secrets.AWS_REGION }}
           deployment_package: nodejs-app-build.zip

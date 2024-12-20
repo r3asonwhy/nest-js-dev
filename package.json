@@ -11,7 +11,8 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "seed": "ts-node -r tsconfig-paths/register src/seed.ts",
     "migration:create": "npx sequelize-cli migration:generate --name",
-    "migrate": "npx sequelize-cli db:migrate"
+    "migrate": "npx sequelize-cli db:migrate",
+    "test": "jest"
   },
   "dependencies": {
     "@faker-js/faker": "^9.2.0",

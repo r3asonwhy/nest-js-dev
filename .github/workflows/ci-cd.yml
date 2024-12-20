@@ -56,7 +56,7 @@ jobs:
       # Package deployment files
       - name: Package deployment bundle
         run: |
-          zip -r nodejs-app-build.zip dist package.json package-lock.json
+          zip -r nodejs-app-build.zip dist package.json package-lock.json .ebextensions
 
       # Deploy to Elastic Beanstalk
       - name: Deploy to Elastic Beanstalk
@@ -64,8 +64,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: 'nest-js-application'
-          environment_name: 'nest-js-demo-env'
+          application_name: ${{ secrets.ES_APP_NAME }}
+          environment_name: ${{ secrets.ES_ENV_NAME }}
           version_label: ${{ github.sha }}
           region: ${{ secrets.AWS_REGION }}
           deployment_package: nodejs-app-build.zip

@@ -56,7 +56,7 @@ jobs:
       # Package deployment files
       - name: Package deployment bundle
         run: |
-          zip -r nodejs-app-build.zip dist package.json package-lock.json .ebextensions
+          zip -r nodejs-app-build.zip dist package.json package-lock.json
 
       # Deploy to Elastic Beanstalk
       - name: Deploy to Elastic Beanstalk

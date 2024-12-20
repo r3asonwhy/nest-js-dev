@@ -6,11 +6,11 @@ import { User } from './user.model'; // Example model
   imports: [
     SequelizeModule.forRoot({
       dialect: 'mysql', // Replace with your DB dialect (mysql, postgres, etc.)
-      host: 'localhost', // Database host
       port: 3306, // Database port
-      username: 'root', // Database username
-      password: 'root', // Database password
-      database: 'template_db', // Database name
+      host: process.env.DB_HOST,
+      username: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      database: process.env.DB_NAME,
       models: [User], // List of models to initialize
       autoLoadModels: true, // Automatically load models
       synchronize: true // Sync database on every application start (use with caution in production)

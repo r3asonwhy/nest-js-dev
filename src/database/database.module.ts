@@ -15,7 +15,7 @@ import { User } from './user.model'; // Example model
       autoLoadModels: true, // Automatically load models
       synchronize: true // Sync database on every application start (use with caution in production)
     }),
-    SequelizeModule.forFeature([User]) // Register models
+    SequelizeModule.forFeature([User]) // Register model
   ],
   exports: [SequelizeModule]
 })

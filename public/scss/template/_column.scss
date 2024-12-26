@@ -1,0 +1,36 @@
+/*--------------------*/
+/* + Column Block     */
+/*--------------------*/
+.column-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+
+    .image {
+        margin-top: var(--sp-2xs);
+
+        img {
+            border-radius: var(--rd-1);
+        }
+    }
+}
+
+.column-content {
+    text-align: left;
+    columns: 2;
+    -webkit-columns: 2;
+    column-gap: calc(var(--sp-md) * 2);
+    -webkit-column-gap: calc(var(--sp-md) * 2);
+}
+
+@include maxMedia(md) {
+    .column-block {
+        .image {
+            margin-top: 0;
+        }
+    }
+
+    .column-content {
+        columns: 1;
+    }
+}

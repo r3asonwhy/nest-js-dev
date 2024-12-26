@@ -1,0 +1,56 @@
+/*--------------------*/
+/* + Popular slider   */
+/*--------------------*/
+.ppl-item {
+    display: block;
+    height: 100%;
+    padding: var(--sp-sm);
+    border-radius: var(--rd-2);
+    background-color: var(--clr-white);
+    border: rem(1) solid var(--clr-white);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition-1);
+
+    >*+* {
+        margin-top: var(--sp-xs);
+    }
+}
+
+.ppl-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/0.815;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: var(--transition-1);
+    }
+}
+
+.ppl-caption {
+    font-size: var(--text-s);
+    font-weight: 400;
+    line-height: 1.21em;
+    color: var(--clr-black);
+    text-align: center;
+    transition: var(--transition-1);
+}
+
+@include minMedia(xl) {
+    a.ppl-item:hover {
+        border-color: var(--clr-primary);
+
+        .ppl-img img {
+            transform: scale(1.08);
+        }
+
+        .ppl-caption {
+            color: var(--clr-primary);
+        }
+    }
+}

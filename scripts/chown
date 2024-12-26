@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /var/www/html
+chown -R ubuntu:ubuntu nodejs/

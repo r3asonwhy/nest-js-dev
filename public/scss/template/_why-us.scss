@@ -1,0 +1,63 @@
+/*--------------------*/
+/* + Why us           */
+/*--------------------*/
+.why-us-item {
+    position: relative;
+    padding: var(--sp-xs);
+    border-radius: var(--rd-2);
+    background-color: var(--clr-light-grey);
+
+    .title {
+        font-size: var(--h5);
+    }
+
+    .text {
+        margin-top: 0.5rem;
+    }
+}
+
+.why-us-icon {
+    --size: 3.75rem;
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 100%;
+    margin-bottom: 1rem;
+    background-color: var(--clr-white);
+
+    img {
+        @include centerAbsolute;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+
+@include maxMedia(xl) {
+    .why-us-item {
+        .title {
+            font-size: var(--text);
+        }
+
+        .text {
+            font-size: var(--text-s);
+        }
+    }
+
+    .why-us-icon {
+        --size: 3rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+@include maxMedia(md) {
+    .why-us-item {
+        .title {
+            font-size: var(--text-s);
+        }
+
+        .text {
+            font-size: rem(10);
+        }
+    }
+}

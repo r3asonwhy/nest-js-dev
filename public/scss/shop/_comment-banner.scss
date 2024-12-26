@@ -1,0 +1,130 @@
+/*----------------------*/
+/* + Comment banner     */
+/*----------------------*/
+.cm-banner {
+    position: relative;
+    gap: var(--sp-md);
+    display: flex;
+    align-items: center;
+
+    padding: var(--sp-sm);
+    border-radius: var(--rd-1);
+    background-color: var(--clr-light-grey);
+
+    .rate {
+        --star-size: calc(var(--sp-sm)* 1.2);
+    }
+
+    .btn_third:not(:hover) {
+        background-color: transparent;
+    }
+}
+
+.cm-banner-line {
+    width: rem(1);
+    margin-inline: auto;
+    align-self: stretch;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: var(--sp-md);
+        bottom: var(--sp-md);
+        width: rem(1);
+        background-color: var(--clr-border);
+    }
+}
+
+.cm-banner-num {
+    gap: 0.25rem 0.5rem;
+    display: grid;
+    align-items: end;
+    grid-template-columns: auto auto;
+
+    .title {
+        line-height: 0.9em;
+    }
+
+    .rate {
+        grid-column: span 2;
+    }
+}
+
+.star-table {
+    gap: 0.5rem var(--sp-xs);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+}
+
+.star-table-item {
+    font-size: var(--text-s);
+    line-height: 1em;
+    color: var(--clt-black);
+    grid-column: span 3;
+    display: grid;
+    align-items: center;
+    grid-template-columns: subgrid;
+
+    .rate {
+        flex-shrink: 0;
+        justify-content: flex-end;
+    }
+}
+
+.star-table-line {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    height: 0.25rem;
+    border-radius: 2px;
+    background: var(--clr-white);
+
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: var(--line);
+        height: 100%;
+        background: var(--clr-primary);
+    }
+}
+
+@include maxMedia(lg) {
+    .cm-banner {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .cm-banner-line {
+        height: rem(1);
+        width: 100%;
+        margin-inline: 0;
+        background-color: var(--clr-border);
+
+        &:before {
+            content: none;
+        }
+
+        &+* {
+            margin-inline: auto;
+        }
+    }
+}
+
+@include maxMedia(sm) {
+    .star-table-line {
+        display: none;
+    }
+
+    .star-table {
+        gap: 0.5rem var(--sp-xs);
+        display: grid;
+        grid-template-columns: 1fr auto;
+    }
+
+    .star-table-item {
+        grid-column: span 2;
+    }
+}

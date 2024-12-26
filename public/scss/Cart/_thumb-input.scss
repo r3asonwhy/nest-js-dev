@@ -1,0 +1,66 @@
+/*--------------------*/
+/* + Thumb input      */
+/*--------------------*/
+.thumb-input-number {
+  --btn-size: 2.25rem;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  color: var(--clr-black);
+  line-height: 1;
+  border-radius: var(--rd-2);
+  border: rem(1) solid var(--clr-border);
+
+  input {
+    font-size: var(--text-s);
+    width: calc(var(--btn-size) * 1.25);
+    color: inherit;
+    font-weight: 400;
+    text-align: center;
+    color: var(--clr-title);
+  }
+
+  button {
+    cursor: pointer;
+    position: relative;
+    width: var(--btn-size);
+    height: var(--btn-size);
+    color: var(--clr-border);
+    outline-offset: -0.25rem;
+    outline: 0.25rem solid transparent;
+    transition: var(--transition-1);
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 0.875rem;
+      height: rem(2);
+      border-radius: 2px;
+      background: currentColor;
+    }
+
+    &.increment {
+      &::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+    }
+  }
+}
+
+@include hoverMedia() {
+  .thumb-input-number button:hover {
+    color: var(--clr-primary);
+    outline-color: var(--clr-white);
+    background-color: var(--clr-light-grey);
+  }
+}
+
+@include maxMedia(md) {
+  .thumb-input-number {
+    --btn-size: 2rem;
+  }
+}

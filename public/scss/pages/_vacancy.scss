@@ -1,0 +1,64 @@
+/*--------------------*/
+/* + Vacancy          */
+/*--------------------*/
+.vacancy-item {
+  padding: calc(var(--sp-sm) * 1.2);
+  border-radius: var(--rd-1);
+  background-color: var(--clr-white);
+  box-shadow: var(--box-shadow);
+  height: 100%;
+  gap: var(--sp-md);
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+
+  .title {
+    margin-bottom: var(--sp-3xs);
+  }
+}
+
+.vacancy-label {
+  gap: rem(6);
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--clr-primary);
+  }
+
+  span {
+    font-size: var(--text-xs);
+    font-weight: 400;
+    color: var(--clr-text);
+    line-height: 1.21em;
+  }
+
+  b {
+    font-size: var(--h5);
+    font-weight: 600;
+    color: var(--clr-black);
+    line-height: 1.1em;
+  }
+}
+
+.vacancy-label-wrap {
+  gap: var(--sp-md);
+  display: flex;
+
+  .vacancy-label+.vacancy-label {
+    padding-left: var(--sp-md);
+    border-left: rem(1) solid var(--clr-grey);
+  }
+}
+
+@include minMedia(xl) {
+  .vacancy-item:hover {
+    background-color: var(--clr-light-grey);
+
+    .btn-link {
+      color: var(--clr-secondary);
+    }
+  }
+}

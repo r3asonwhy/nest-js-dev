@@ -1,0 +1,54 @@
+// loading
+.block-loading {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: url(../img/loader.svg) no-repeat center center;
+        aspect-ratio: 1/1;
+        width: 100px;
+        max-width: 90%;
+        max-height: 90%;
+        background-size: 100% 100%;
+        z-index: 5;
+        transition: 1s;
+        animation: loaderFadeIn 0.3s;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: 5;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: var(--rd-1);
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        transition: 0.3s;
+        animation: loaderFadeIn 0.3s;
+    }
+}
+
+@keyframes loaderFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.block-loading_remove {
+
+    &::before,
+    &::after {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,21 @@
+/*--------------------*/
+/* + Benefit          */
+/*--------------------*/
+.benefit-item {
+  position: relative;
+  height: 100%;
+  padding-bottom: var(--sp-md);
+  border-bottom: 0.0625rem solid var(--clr-light-grey);
+
+  >*+* {
+    margin-top: var(--sp-sm);
+  }
+}
+
+.benefit-num {
+  color: var(--clr-primary);
+  font-size: var(--h2);
+  line-height: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+}

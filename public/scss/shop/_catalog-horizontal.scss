@@ -1,0 +1,209 @@
+/*-----------------------------*/
+/* + Products Horizontal Grid  */
+/*-----------------------------*/
+.products-horizontal {
+    grid-template-columns: 1fr;
+
+    .product-card {
+        display: grid;
+    }
+
+    .product-card__image-holder {
+        margin-bottom: 0;
+    }
+
+    .product-card__title {
+        font-size: var(--h4);
+        text-wrap: balance;
+    }
+
+    .product-card__about {
+        >div:not(:first-child) {
+            display: none;
+        }
+    }
+
+    .product-card__info {
+        display: block;
+    }
+
+    .product-card__bottom {
+        min-height: fit-content;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding: var(--sp-sm);
+        border-radius: var(--rd-2);
+        border: rem(1) solid var(--clr-border);
+    }
+
+    .product-card__order-btn {
+        padding: 0;
+        width: var(--btn-height-m) !important;
+        height: auto;
+        aspect-ratio: 1;
+
+        b {
+            display: none;
+        }
+    }
+
+    .product-card__status {
+        width: 100%;
+        display: flex;
+    }
+
+    .product-card__video-wrap {
+        display: block;
+    }
+
+    .product-card__video {
+        display: inline-flex;
+        align-self: baseline;
+        width: fit-content;
+
+        b {
+            display: none;
+        }
+    }
+}
+
+@include minMedia(lg) {
+    .products-horizontal {
+        .product-card {
+            gap: 0.75rem var(--sp-md);
+            grid-template-columns: 0.48465fr 1fr 0.55289fr;
+            grid-template-rows: auto auto auto 1fr;
+        }
+
+        .product-card__image-holder {
+            grid-column: 1/2;
+            grid-row: span 4;
+        }
+
+        .product-card__title {
+            grid-column: 2/3;
+            grid-row: 1;
+            align-self: center;
+        }
+
+        .product-card__about {
+            grid-column: 2/3;
+            grid-row: 2;
+        }
+
+        .product-card__sku {
+            grid-column: 2/3;
+            grid-row: 3;
+        }
+
+        .product-card__info {
+            grid-column: 2/3;
+            grid-row: 4;
+        }
+
+        .product-card__bottom {
+            grid-column: 3/4;
+            grid-row: 1/4;
+        }
+
+        .product-card__video-wrap {
+            align-self: baseline;
+        }
+
+        .product-card__video {
+            width: 100%;
+
+            b {
+                display: block;
+            }
+        }
+    }
+}
+
+@include maxMedia(lg) {
+    @include minMedia(sm) {
+        .products-horizontal {
+            .product-card {
+                gap: var(--sp-2xs);
+                grid-template-columns: 0.4fr 1fr;
+            }
+
+            .product-card__image-holder {
+                grid-row: span 2;
+            }
+
+            .product-card__title {
+                grid-column: 2/3;
+                grid-row: 1;
+            }
+
+            .product-card__info {
+                grid-column: 2/3;
+                grid-row: 2/3;
+
+                li {
+                    justify-content: space-between;
+                }
+            }
+
+            .product-card__bottom {
+                grid-column: 2/3;
+                grid-row: 3/6;
+            }
+
+            .product-card__about {
+                grid-column: 1/2;
+            }
+
+            .product-card__sku {
+                grid-column: 1/2;
+            }
+        }
+    }
+}
+
+@include maxMedia(sm) {
+    .products-horizontal {
+        .product-card {
+            gap: var(--sp-2xs);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .product-card__image-holder {
+            grid-column: 1/2;
+            grid-row: span 4;
+        }
+
+        .product-card__title {
+            grid-column: span 2;
+            grid-row: 1;
+        }
+
+        .product-card__info {
+            grid-column: span 2;
+            grid-row: 6/7;
+
+            ul {
+                gap: 0.5rem 1rem;
+            }
+
+            li {
+                justify-content: space-between;
+            }
+
+            b {
+                text-align: right;
+            }
+        }
+
+        .product-card__bottom {
+            grid-column: span 2;
+        }
+
+        .product-card__video-wrap {
+            grid-column: 2/3;
+            grid-row: 4/5;
+        }
+    }
+}

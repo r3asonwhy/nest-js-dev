@@ -1,0 +1,116 @@
+/*--------------------*/
+/* + CABINET SECTION  */
+/*--------------------*/
+.cb-section {
+    position: relative;
+    gap: calc(var(--sp-md) * 1.33333);
+    display: flex;
+    align-items: flex-start;
+    padding-right: calc((100vw - var(--container-width) + 1rem) / 2);
+}
+
+.cb-menu-inner {
+    flex-shrink: 0;
+    gap: calc(var(--sp-md) * 1.33333);
+    display: flex;
+    flex-direction: column;
+
+    margin-top: var(--sp-2xs);
+    padding: calc(var(--sp-md) * 1.33333);
+    width: rem(350);
+    max-height: calc(100dvh - var(--h-height) - var(--sp-2xs) * 2);
+
+    border-radius: 0 var(--rd-1) var(--rd-1) 0;
+    background-color: var(--clr-white);
+    transition: var(--transition-1);
+    box-shadow: var(--box-shadow);
+
+}
+
+.hide-top-header .cb-menu-inner {
+    max-height: calc(100dvh - var(--h-bottom-height) - var(--sp-2xs) * 2);
+}
+
+.cb-content {
+    padding-top: var(--sp-md);
+    width: 100%;
+    flex-shrink: 1;
+
+    >*+* {
+        margin-top: var(--sp-md);
+    }
+}
+
+.cb-toggle-btn {
+    white-space: nowrap;
+    position: fixed;
+    z-index: 50;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cb-overlay {
+    cursor: pointer;
+    position: fixed;
+    z-index: 109;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: var(--transition-1);
+    opacity: 0;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(var(--blur));
+}
+
+@include minMedia(xl) {
+
+    .cb-overlay,
+    .cb-toggle-btn,
+    .cb-menu-close {
+        display: none;
+    }
+}
+
+@include maxMedia(xl) {
+    .cb-section {
+        display: block;
+        padding-inline: 1rem;
+    }
+
+    .cb-menu-inner {
+        position: fixed;
+        z-index: 110;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100svh;
+        max-height: 100%;
+        max-width: rem(312);
+        transform: translateX(-100%);
+        margin-top: 0;
+        border-radius: 0px;
+        padding: var(--sp-md) 1rem;
+        transition: var(--transition-1);
+
+        .cb-menu-close {
+            position: absolute;
+            top: 0;
+            top: calc(0.5rem + 2rem);
+            right: 1rem;
+        }
+    }
+
+    .cabinet-is-open {
+        .cb-menu-inner {
+            transform: translateX(0);
+        }
+
+        .cb-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}

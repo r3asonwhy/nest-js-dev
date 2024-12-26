@@ -1,0 +1,80 @@
+import { HttpStatus } from "@nestjs/common";
+import { CustomHttpStatus } from "./constants";
+
+export const ERROR_CODES = {
+  INVALID_CREDENTIALS: { message: 'validation.auth.INVALID_CREDENTIALS', errorCode: HttpStatus.UNAUTHORIZED },
+  EMAIL_NOT_VERIFIED: { message: 'validation.auth.EMAIL_NOT_VERIFIED', errorCode: HttpStatus.UNAUTHORIZED },
+  INVALID_DEVICE_OR_TOKEN: { message: 'validation.auth.INVALID_DEVICE_OR_TOKEN', errorCode: HttpStatus.UNAUTHORIZED },
+  LOGOUT_FAILED: { message: 'validation.auth.LOGOUT_FAILED', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  NO_ACCESS_TOKEN: { message: 'validation.auth.NO_ACCESS_TOKEN', errorCode: HttpStatus.UNAUTHORIZED },
+  INVALID_TOKEN: { message: 'validation.auth.INVALID_TOKEN', errorCode: HttpStatus.UNAUTHORIZED },
+  ERROR_REFRESHING_TOKENS: { message: 'validation.auth.ERROR_REFRESHING_TOKENS', errorCode: HttpStatus.UNAUTHORIZED },
+  INVALID_TOKEN_TYPE: { message: 'validation.auth.INVALID_TOKEN_TYPE', errorCode: HttpStatus.BAD_REQUEST },
+  CODE_EXPIRED: { message: 'validation.auth.CODE_EXPIRED', errorCode: HttpStatus.BAD_REQUEST },
+  EMAIL_ALREADY_VERIFIED: { message: 'validation.auth.EMAIL_ALREADY_VERIFIED', errorCode: HttpStatus.BAD_REQUEST },
+  PASSWORD_MISMATCH: { message: 'validation.auth.PASSWORD_MISMATCH', errorCode: HttpStatus.BAD_REQUEST },
+  COGNITO_ERROR: { message: 'validation.auth.COGNITO_ERROR', errorCode: HttpStatus.BAD_REQUEST },
+  TOKEN_EXPIRED: { message: 'validation.auth.TOKEN_EXPIRED', errorCode: CustomHttpStatus.TOKEN_EXPIRED },
+  UNKNOWN_ERROR: { message: 'validation.auth.UNKNOWN_ERROR', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  USER_CREATION_ERROR: { message: 'validation.auth.USER_CREATION_ERROR', errorCode: HttpStatus.BAD_REQUEST },
+  INVALID_PASSWORD_POLICY: { message: 'validation.auth.INVALID_PASSWORD_POLICY', errorCode: HttpStatus.BAD_REQUEST },
+  NO_JWT_FOUND: { message: 'validation.auth.NO_JWT_FOUND', errorCode: HttpStatus.UNAUTHORIZED },
+  INVALID_OR_EXPIRED_TOKEN: { message: 'validation.auth.INVALID_OR_EXPIRED_TOKEN', errorCode: HttpStatus.UNAUTHORIZED },
+  PHONE_FORMAT_ERROR: { message: 'validation.auth.PHONE_FORMAT_ERROR', errorCode: HttpStatus.BAD_REQUEST },
+  INVALID_PASSWORD_FORMAT: { message: 'validation.auth.INVALID_PASSWORD_FORMAT', errorCode: HttpStatus.BAD_REQUEST },
+  PASSWORD_STRENGTH_ERROR: { message: 'validation.auth.PASSWORD_STRENGTH_ERROR', errorCode: HttpStatus.BAD_REQUEST },
+  PASSWORD_TOO_SHORT: { message: 'validation.auth.PASSWORD_TOO_SHORT', errorCode: HttpStatus.BAD_REQUEST },
+  PASSWORD_TOO_LONG: { message: 'validation.auth.PASSWORD_TOO_LONG', errorCode: HttpStatus.BAD_REQUEST },
+
+  EMAIL_EXISTS: { message: 'validation.user.EMAIL_EXISTS', errorCode: HttpStatus.BAD_REQUEST },
+  PHONE_EXISTS: { message: 'validation.user.PHONE_EXISTS', errorCode: HttpStatus.BAD_REQUEST },
+  USER_NOT_FOUND: { message: 'validation.user.USER_NOT_FOUND', errorCode: HttpStatus.NOT_FOUND },
+  USER_DELETE_FAILED: { message: 'validation.user.USER_DELETE_FAILED', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  USER_UPDATE_FAILED: { message: 'validation.user.USER_UPDATE_FAILED', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  DELETE_COGNITO_FAILED: { message: 'validation.user.DELETE_COGNITO_FAILED', errorCode: HttpStatus.BAD_REQUEST },
+  FAILED_TO_UPDATE_PASSWORD: { message: 'validation.user.FAILED_TO_UPDATE_PASSWORD', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  FAILED_TO_UPDATE_USER_ATTRIBUTES: { message: 'validation.user.FAILED_TO_UPDATE_USER_ATTRIBUTES', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  USER_ROLE_NOT_FOUND: { message: 'validation.user.USER_ROLE_NOT_FOUND', errorCode: HttpStatus.FORBIDDEN },
+  NO_PERMISSION: { message: 'validation.user.NO_PERMISSION', errorCode: HttpStatus.FORBIDDEN },
+  FIRST_NAME_REQUIRED: { message: 'validation.user.FIRST_NAME_REQUIRED', errorCode: HttpStatus.BAD_REQUEST },
+  LAST_NAME_REQUIRED: { message: 'validation.user.LAST_NAME_REQUIRED', errorCode: HttpStatus.BAD_REQUEST },
+  INVALID_EMAIL_FORMAT: { message: 'validation.user.INVALID_EMAIL_FORMAT', errorCode: HttpStatus.BAD_REQUEST },
+  INVALID_PHONE_FORMAT: { message: 'validation.user.INVALID_PHONE_FORMAT', errorCode: HttpStatus.BAD_REQUEST },
+  MUST_ACCEPT_PRIVACY_POLICY: { message: 'validation.user.MUST_ACCEPT_PRIVACY_POLICY', errorCode: HttpStatus.BAD_REQUEST },
+  INVALID_CODE: { message: 'validation.user.INVALID_CODE', errorCode: HttpStatus.BAD_REQUEST },
+  EMAIL_EXISTS_SHORT: { message: 'validation.user.EMAIL_EXISTS_SHORT', errorCode: HttpStatus.BAD_REQUEST },
+  PHONE_EXISTS_SHORT: { message: 'validation.user.PHONE_EXISTS_SHORT', errorCode: HttpStatus.BAD_REQUEST },
+
+  INVALID_AMOUNT: { message: 'validation.token.INVALID_AMOUNT', errorCode: HttpStatus.BAD_REQUEST },
+  INVALID_UNIT: { message: 'validation.token.INVALID_UNIT', errorCode: HttpStatus.BAD_REQUEST },
+  TOKEN_SAVE_FAILED: { message: 'validation.token.TOKEN_SAVE_FAILED', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  TOKEN_DELETE_FAILED: { message: 'validation.token.TOKEN_DELETE_FAILED', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  TOKEN_FETCH_FAILED: { message: 'validation.token.TOKEN_FETCH_FAILED', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  TOKEN_NOT_FOUND: { message: 'validation.token.TOKEN_NOT_FOUND', errorCode: HttpStatus.NOT_FOUND },
+  TOKEN_UPDATE_FAILED: { message: 'validation.token.TOKEN_UPDATE_FAILED', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+
+  MISSING_CONFIG: { message: 'validation.mail.MISSING_CONFIG', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  INVALID_EMAIL: { message: 'validation.mail.INVALID_EMAIL', errorCode: HttpStatus.BAD_REQUEST },
+  SEND_FAILED: { message: 'validation.mail.SEND_FAILED', errorCode: HttpStatus.SERVICE_UNAVAILABLE },
+
+  SEND_SMS_FAILED: { message: 'validation.sms.SEND_SMS_FAILED', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+
+  TEMPLATE_NOT_FOUND: { message: 'validation.template.TEMPLATE_NOT_FOUND', errorCode: HttpStatus.NOT_FOUND },
+  TEMPLATE_DATA_NOT_DEFINED: { message: 'validation.template.TEMPLATE_DATA_NOT_DEFINED', errorCode: HttpStatus.NOT_FOUND },
+ 
+  NOT_INITIALIZED: { message: 'validation.config.NOT_INITIALIZED', errorCode: HttpStatus.INTERNAL_SERVER_ERROR },
+  CONFIG_KEY_NOT_EXIST: { message: 'validation.config.CONFIG_KEY_NOT_EXIST', errorCode: HttpStatus.NOT_FOUND },
+
+  HEADER_FOOTER_NOT_FOUND: { message: 'validation.layout.HEADER_FOOTER_NOT_FOUND', errorCode: HttpStatus.NOT_FOUND },
+  MENU_VALUE_REQUIRED: { message: 'validation.layout.MENU_VALUE_REQUIRED', errorCode: HttpStatus.BAD_REQUEST },
+  MENU_NOT_FOUND: { message: 'validation.layout.MENU_NOT_FOUND', errorCode: HttpStatus.NOT_FOUND },
+
+  SECTIONS_REQUIRED: { message: 'validation.page.SECTIONS_REQUIRED', errorCode: HttpStatus.BAD_REQUEST },
+  TEMPLATE_REQUIRED: { message: 'validation.page.TEMPLATE_REQUIRED', errorCode: HttpStatus.BAD_REQUEST },
+  PAGE_NOT_FOUND: { message: 'validation.page.PAGE_NOT_FOUND', errorCode: HttpStatus.NOT_FOUND },
+  SECTION_FIELDS_REQUIRED: { message: 'validation.page.SECTION_FIELDS_REQUIRED', errorCode: HttpStatus.BAD_REQUEST },
+  ERROR_CODE_REQUIRED: { message: 'validation.page.ERROR_CODE_REQUIRED', errorCode: HttpStatus.BAD_REQUEST },
+  INVALID_ERROR_CODE: { message: 'validation.page.INVALID_ERROR_CODE', errorCode: HttpStatus.BAD_REQUEST },
+}
+
+

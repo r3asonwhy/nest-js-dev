@@ -1,0 +1,54 @@
+/*---------------------*/
+/* + Checkout          */
+/*---------------------*/
+.checkout-wrap {
+    padding: var(--sp-sm);
+    border-radius: var(--rd-1);
+    background-color: var(--clr-white);
+    border: rem(1) solid var(--clr-border);
+    box-shadow: var(--box-shadow);
+
+    >*+* {
+        margin-top: var(--sp-md);
+    }
+}
+
+.checkout-inner {
+    >.title {
+        margin-bottom: var(--sp-2xs)
+    }
+}
+
+.checkout__message {
+    padding: var(--sp-xs);
+    font-size: var(--text);
+    font-weight: 600;
+    color: var(--clr-white);
+    text-align: center;
+    border-radius: var(--rd-2);
+    background: linear-gradient(90deg, #073064 0%, #FF0D1B 100%);
+
+    b {
+        font-weight: 600;
+        font-size: var(--h5);
+    }
+}
+
+.promo-code {
+    position: relative;
+
+    .input {
+        padding-right: rem(132);
+    }
+}
+
+.promo-btn {
+    position: absolute;
+    z-index: 10;
+    right: rem(1);
+    top: rem(1);
+    bottom: rem(1);
+    height: auto;
+    padding-right: var(--sp-sm);
+    font-size: var(--text-s);
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{> top}}
+  {{#if pageTitle}} <title class="meta">{{pageTitle}}</title>{{/if}}
+  {{#if pageDesc}}<meta class="meta" name="description" content="{{pageDesc}}">{{/if}}
+  {{!-- <script src="https://www.google.com/recaptcha/api.js?render=6LdcvKYpAAAAANjvByojKH9cFmdkoQbKTHGD-zHR"></script> --}}
+  <style>
+    #overlay {
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      display: none;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .cv-spinner {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 4px #ddd solid;
+      border-top: 4px #2b925d solid;
+      border-radius: 50%;
+      animation: sp-anime 0.8s infinite linear;
+    }
+
+    @keyframes sp-anime {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .is-hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="overlay">
+    <div class="cv-spinner">
+      <span class="spinner"></span>
+    </div>
+  </div>
+
+  <div id="loader-wrapper"></div>
+  <div id="content-block">
+
+
+    {{> header}}
+    {{{ body }}}
+    {{#if footer}}
+      {{> footer}}
+    {{/if}}
+  </div>
+
+  <!-- Popups -->
+  {{> popups}}
+  {{> bottom}}
+  {{> cookies}}
+  {{> inputs}}
+  {{> others}}
+
+  <button class="btn btn_primary btn_icon-only scroll-page-top-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path stroke="#fff" stroke-linecap="round" stroke-width="1.5" d="M8 12.665V4m4.667 4L8 3.332 3.334 7.999"/></svg>
+  </button>
+</body>
+
+</html>

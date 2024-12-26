@@ -1,0 +1,41 @@
+/*--------------------*/
+/* + Delivery         */
+/*--------------------*/
+.delivery {
+  &-wrap {
+
+    >*+* {
+      margin-top: var(--sp-lg);
+    }
+  }
+
+  &-title {
+    margin-bottom: var(--sp-sm);
+    gap: var(--sp-md);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &-icon {
+    --size: 4rem;
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    flex-shrink: 0;
+    background-color: var(--bg);
+    border-radius: var(--rd-1);
+    box-shadow: var(--box-shadow);
+
+    img {
+      @include centerAbsolute;
+      width: 58%;
+      height: 58%;
+    }
+  }
+}
+
+@include maxMedia(md) {
+  .delivery-icon {
+    --size: 3rem;
+  }
+}

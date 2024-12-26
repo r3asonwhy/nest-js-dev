@@ -1,0 +1,78 @@
+{
+  "auth": {
+    "REGISTRATION_SUCCESS": "Registration successful",
+    "LOGIN_SUCCESS": "Login successful",
+    "LOGOUT_SUCCESS": "Logout successful",
+    "TOKEN_REFRESHED": "Token refreshed successfully",
+    "EMAIL_VERIFIED_SUCCESS": "Email verified successfully",
+    "VERIFICATION_EMAIL_RESENT": "Verification email resent",
+    "PASSWORD_RESET_CODE_SENT": "Password reset code sent to your email",
+    "PASSWORD_UPDATED": "Password has been successfully updated",
+    "VERIFICATION_CODE_RESENT": "Verification code successfully resent"
+  },
+  "user": {
+    "CREATED_SUCCESS": "User successfully created",
+    "DELETED_SUCCESSFULLY": "User deleted successfully",
+    "FIELD_CHANGED": "Field changed"
+  },
+  "mail": {
+    "VERIFY_EMAIL_SUBJECT": "Email Verification",
+    "VERIFY_EMAIL_BODY": "Click the link below to verify your email:",
+    "VERIFY_EMAIL_BUTTON": "Confirm Email",
+    "PASSWORD_RESET_REQUEST": "Password reset request",
+    "RESET_EMAIL_BODY_GREETING": "Hello, {firstName},",
+    "RESET_EMAIL_BODY_INSTRUCTION": "You have requested a password reset. Use the following code to reset your password:",
+    "RESET_EMAIL_IGNORE": "If you have not made this request, simply ignore this email",
+    "PASSWORD_SUCCESSFULLY_UPDATED": "Password successfully updated",
+    "PASSWORD_UPDATED_GREETING": "Hello, {firstName},",
+    "PASSWORD_UPDATED_MESSAGE": "Your password has been successfully updated. If you did not request this change, please contact support immediately"
+  },
+  "log": {
+    "FIELD_ADDED": "Field added",
+    "FIELD_CHANGED": "Field changed",
+    "FIELD_REMOVED": "Field removed"
+  },
+  "file": {
+    "DELETED_SUCCESSFULLY": "File deleted successfully"
+  },
+  "sms": {
+    "PASSWORD_RESET_CODE": "Your password reset code is: {code}"
+  },
+  "popups": {
+    "LOGIN": "Login",
+    "REGISTER": "Register",
+    "ENTER_PHONE": "Enter your phone*",
+    "ENTER_PASSWORD": "Enter your password*",
+    "REQUIRED_FIELD_ERROR": "This field is required.",
+    "FORGOT_PASSWORD": "Forgot password?",
+    "FIRST_NAME_PLACEHOLDER": "Your name*",
+    "LAST_NAME_PLACEHOLDER": "Your last name*",
+    "PHONE_PLACEHOLDER": "Your phone number*",
+    "EMAIL_PLACEHOLDER": "Your email*",
+    "PASSWORD_PLACEHOLDER": "Your password*",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Repeat password*",
+    "FIELD_REQUIRED_ERROR": "Fill in the field",
+    "AGREE_TO_TERMS": "I agree with",
+    "TERMS_LINK": "Terms of use",
+    "PASSWORD_MISMATCH_ERROR": "Your password does not match!",
+    "ALREADY_REGISTERED": "Already registered?",
+    "REGISTRATION_SUCCESS_TITLE": "Registration was successful",
+    "REGISTRATION_SUCCESS_MESSAGE": "Congratulations on your successful registration on our website",
+    "VIEW_PRODUCTS_BUTTON": "View products",
+    "RESTORE_PASSWORD_TITLE": "Recover password",
+    "RESTORE_PASSWORD_INSTRUCTION": "Enter the phone number to which the verification code will be sent",
+    "ENTER_PHONE_PLACEHOLDER": "Enter your phone number",
+    "INVALID_PHONE_FORMAT": "Incorrect phone format!",
+    "SEND_CODE_BUTTON": "Send the code",
+    "BACK_TO_LABEL": "Return to",
+    "ENTER_CONFIRMATION_CODE_MESSAGE": "Enter the verification code sent to the specified number",
+    "INVALID_CODE_ERROR": "Incorrect entered code",
+    "CONFIRM_BUTTON": "Confirm",
+    "RESEND_CODE_BUTTON": "Resend the code",
+    "CREATE_NEW_PASSWORD_MESSAGE": "Create a new password for your account",
+    "NEW_PASSWORD_PLACEHOLDER": "Your password*",
+    "PASSWORD_CHANGED_TITLE": "Password successfully changed",
+    "PASSWORD_CHANGED_MESSAGE": "Log in to your account using a new password",
+    "LOGIN_BUTTON": "Log in to your account"
+  }
+}

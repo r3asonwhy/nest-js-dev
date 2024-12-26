@@ -1,0 +1,306 @@
+/*--------------------*/
+/* + ARTICLE          */
+/*--------------------*/
+body {
+  font-family: var(--ff-1);
+  font-weight: 400;
+  font-size: var(--text);
+  line-height: 1.21;
+  color: var(--clr-text);
+}
+
+.text {
+  --text-space: 1rem;
+  --text-rd: var(--rd-1);
+  --text-li-padding: 1.75rem;
+  --text-th-height: 3.25rem;
+  --text-th-padding: .625rem;
+  font-size: var(--text);
+  line-height: 1.33333em;
+  font-weight: 400;
+  color: var(--clr-text);
+
+  *+ :where(*) {
+    margin-top: calc(var(--text-space) * 2);
+  }
+
+  :is(p, ul, ol)+ :is(p, ul, ol) {
+    margin-top: var(--text-space);
+  }
+
+  li+li {
+    margin-top: calc(var(--text-space) / 2);
+  }
+
+  :is(h1, h2, h3, h4, h5, h6)+ :is(p, ul, ol, li) {
+    margin-top: calc(var(--text-space) * 1.25);
+  }
+
+  // :is(img, table, iframe, figure, picture, blockquote, .swiper-entry)+* {
+  //   margin-top: calc(var(--text-space) * 2);
+  // }
+
+  .swiper-entry>* * {
+    margin-top: 0;
+  }
+}
+
+.text-m {
+  font-size: var(--text-m);
+}
+
+.text-s {
+  font-size: var(--text-s);
+}
+
+.text-xs {
+  font-size: var(--text-xs);
+}
+
+.text b {
+  font-weight: 600;
+}
+
+:where(.text b, .text span) {
+  color: var(--clr-secondary);
+}
+
+.text {
+  strong {
+    font-weight: 700;
+    color: var(--clr-black);
+  }
+}
+
+.text em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.text a:not(.btn) {
+  display: inline;
+  color: var(--clr-primary);
+  text-decoration: underline;
+}
+
+.text ul li,
+.text ol li {
+  position: relative;
+  padding-left: var(--text-li-padding);
+
+  a:not(.btn) {
+    text-decoration: underline;
+  }
+}
+
+.text ul li:before {
+  content: "";
+  position: absolute;
+  left: calc(var(--text-li-padding) / 2 - 0.5em);
+  top: 0.55em;
+  width: rem(6);
+  height: rem(6);
+  border-radius: 100%;
+  background-color: var(--clr-primary);
+}
+
+.text ol {
+  counter-reset: number;
+
+  li:before {
+    counter-increment: number;
+    content: counter(number) ".";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    line-height: inherit;
+    color: var(--clr-primary);
+  }
+}
+
+.text img {
+  vertical-align: top;
+  width: auto;
+  border-radius: var(--text-rd);
+}
+
+.text .slide-img img {
+  display: block;
+  width: 100%;
+}
+
+.text figure {
+  line-height: 0;
+  width: 100% !important;
+
+  &.aligncenter {
+    text-align: center;
+  }
+
+  &.alignright {
+    text-align: right;
+  }
+
+  >img {
+    width: auto;
+  }
+
+  figcaption {
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.5em;
+    color: var(--clr-black);
+    margin: 0.3125rem !important;
+  }
+}
+
+.text iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16/9;
+  border: 0;
+  border-radius: var(--text-rd);
+}
+
+.text blockquote {
+  position: relative;
+
+  font-weight: 700;
+  color: #fff;
+  font-size: var(--h4);
+  line-height: 1.1em;
+  text-align: center;
+  text-wrap: balance;
+
+  padding-block: calc(var(--text-space) * 2.5);
+  padding-inline: var(--sp-xl);
+
+  border-radius: var(--text-rd);
+  background-color: var(--clr-primary);
+
+
+  background-size: 75%;
+  background-position: top right -9%;
+  background-repeat: no-repeat;
+  background-image: url(../img/icons/quotes.svg);
+}
+
+.text table {
+  border-collapse: collapse;
+  width: 100%;
+
+  thead {
+    tr {
+      border-width: 0.125rem;
+    }
+
+    th,
+    td {
+      font-weight: 700;
+      color: var(--clr-title);
+    }
+  }
+
+  tr {
+    text-align: left;
+    border-bottom: rem(1) solid var(--clr-border);
+
+  }
+
+  td,
+  th {
+    vertical-align: middle;
+    height: var(--text-th-height);
+    padding: calc(var(--text-th-padding) / 2);
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    color: var(--clr-text);
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      text-align: right;
+      padding-right: 0;
+    }
+  }
+}
+
+.text *:first-child img {
+  margin-top: 0;
+}
+
+:is(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
+  font-weight: 600;
+  color: var(--clr-title);
+}
+
+h1,
+.h1 {
+  font-size: var(--h1);
+  line-height: 1.1;
+}
+
+h2,
+.h2 {
+  font-size: var(--h2);
+  line-height: 1.1;
+}
+
+h3,
+.h3 {
+  font-size: var(--h3);
+  line-height: 1.21;
+}
+
+h4,
+.h4 {
+  font-size: var(--h4);
+  line-height: 1.21;
+}
+
+h5,
+.h5 {
+  font-size: var(--h5);
+  line-height: 1.33;
+}
+
+h6,
+.h6 {
+  font-size: var(--h6);
+  line-height: 1.33;
+}
+
+@include minMedia(xl) {
+  .text a:not(.btn):hover {
+    text-decoration-color: transparent;
+  }
+
+  .text ul li a:not(.btn):hover,
+  .text ol li a:not(.btn):hover {
+    text-decoration-color: transparent;
+  }
+}
+
+@include maxMedia(lg) {
+  .text {
+    --text-space: 0.875rem;
+    --text-li-padding: 1.25rem;
+    --text-th-height: 3rem;
+    --text-th-padding: 0.5rem;
+
+    blockquote {
+      padding-inline: 1rem;
+    }
+  }
+}
+
+@include maxMedia(md) {
+  .text {
+    --text-space: 0.625rem;
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "auth": {
+    "USER_CREATION_ERROR": "Username and password are required!",
+    "PASSWORD_REQUIREMENTS": "Password must be at least 8 characters long and contain at least one letter, one number, and one special character",
+    "INVALID_PASSWORD_FORMAT": "Invalid password format",
+    "PASSWORD_STRENGTH_ERROR": "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character",
+    "EMAIL_FORMAT_ERROR": "Invalid email format",
+    "PHONE_FORMAT_ERROR": "Invalid phone number format",
+    "PASSWORD_MISMATCH": "Passwords do not match",
+    "FAILED_CONFIRM_COGNITO": "Failed to confirm user in Cognito",
+    "EMAIL_NOT_VERIFIED": "Email is not verified",
+    "INVALID_CREDENTIALS": "Invalid phone or password",
+    "CODE_EXPIRED": "Code has expired",
+    "INVALID_TOKEN_TYPE": "Invalid token type",
+    "NO_ACCESS_TOKEN": "No access token provided",
+    "ERROR_REFRESHING_TOKENS": "Error refreshing tokens",
+    "EMAIL_ALREADY_VERIFIED": "Email already verified",
+    "INVALID_TOKEN": "Invalid token",
+    "NO_JWT_FOUND": "No JWT found in cookies",
+    "INVALID_OR_EXPIRED_TOKEN": "Invalid or expired token",
+    "LOGOUT_FAILED": "Logout process failed. Please try again later",
+    "INVALID_PASSWORD_POLICY": "Password must be at least 12 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character",
+    "UNKNOWN_ERROR": "An unknown error occurred. Please try again later or contact support",
+    "INVALID_DEVICE_OR_TOKEN": "Invalid device or token. Please try again",
+    "COGNITO_ERROR": "An error occurred while interacting with Cognito: {error}",
+    "TOKEN_EXPIRED": "Your session has expired. Please log in again",
+    "PASSWORD_TOO_SHORT": "Password must not be less than 12 characters",
+    "PASSWORD_TOO_LONG": "Password must not exceed 99 characters"
+  },
+  "user": {
+    "USER_NOT_FOUND": "User not found",
+    "REQUIRED_FIELD_EMPTY_ERROR": "Required {property} is empty!",
+    "DELETE_COGNITO_FAILED": "Failed to delete user from Cognito",
+    "USER_ROLE_NOT_FOUND": "User role not found",
+    "NO_PERMISSION": "You do not have permission to access this resource",
+    "EMAIL_EXISTS": "A user with this email already exists",
+    "EMAIL_EXISTS_SHORT": "email already exists",
+    "PHONE_EXISTS": "A user with this phone already exists",
+    "PHONE_EXISTS_SHORT": "phone already exists",
+    "FAILED_TO_UPDATE_PASSWORD": "Failed to update password in Cognito",
+    "FAILED_TO_UPDATE_USER_ATTRIBUTES": "Failed to update user attributes in Cognito",
+    "USER_UPDATE_FAILED": "Failed to update user details",
+    "USER_DELETE_FAILED": "Failed to delete the user",
+    "INVALID_STATUS": "The provided status is invalid",
+    "INVALID_ROLE": "The provided role is invalid",
+    "VALIDATION_ERROR": "Помилка валідації",
+    "FIRST_NAME_REQUIRED": "First name is required",
+    "LAST_NAME_REQUIRED": "Last name is required",
+    "INVALID_EMAIL_FORMAT": "Invalid email format",
+    "INVALID_PHONE_FORMAT": "Invalid phone format",
+    "MUST_ACCEPT_PRIVACY_POLICY": "You must accept the privacy policy",
+    "INVALID_CODE": "Invalid code"
+  },
+  "token": {
+    "TOKEN_DELETE_FAILED": "Failed to delete tokens from the database",
+    "TOKEN_SAVE_FAILED": "Failed to save token to the database",
+    "TOKEN_FETCH_FAILED": "Failed to fetch token from the database",
+    "TOKEN_UPDATE_FAILED": "Failed to update tokens in the database",
+    "TOKEN_NOT_FOUND": "Token not found for user_id: {user_id}",
+    "INVALID_AMOUNT": "Amount must be a positive number. Received: {amount}",
+    "INVALID_UNIT": "Invalid unit '{unit}'. Allowed units are: {validUnits}"
+  },
+  "mail": {
+    "MISSING_CONFIG": "SMTP configuration is missing. Please set SMTP_HOST, SMTP_PORT, SMTP_USER, and GOOGLE_GEN_PASSWORD",
+    "INVALID_EMAIL": "Invalid email address",
+    "SEND_FAILED": "Failed to send email. Please try again later"
+  },
+  "sms": {
+    "SEND_SMS_FAILED": "Failed to send SMS. Please try again later"
+  },
+  "template": {
+    "TEMPLATE_NOT_FOUND": "Template '{templateName}' not found at '{templatePath}'",
+    "TEMPLATE_DATA_NOT_DEFINED": "Template data not defined for '{templateKey}'"
+  },
+  "config": {
+    "NOT_INITIALIZED": "The application configuration service has not been initialized",
+    "CONFIG_KEY_NOT_EXIST": "Configuration key does not exist"
+  },
+  "layout": {
+    "HEADER_FOOTER_NOT_FOUND": "Header/Footer configuration not found for language: {{lang}}",
+    "MENU_VALUE_REQUIRED": "Menu value is required",
+    "MENU_NOT_FOUND": "Menu configuration not found for language: {{lang}}"
+  },
+  "page": {
+    "SECTIONS_REQUIRED": "Sections are required",
+    "TEMPLATE_REQUIRED": "Template is required",
+    "PAGE_NOT_FOUND": "Page not found",
+    "SECTION_FIELDS_REQUIRED": "Each section must have a type and content",
+    "ERROR_CODE_REQUIRED": "Error code is required",
+    "INVALID_ERROR_CODE": "Invalid error code provided"
+  }
+}

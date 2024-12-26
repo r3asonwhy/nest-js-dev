@@ -1,0 +1,41 @@
+/*--------------------*/
+/* + CABINET USER     */
+/*--------------------*/
+.user-stats {
+  gap: calc(var(--sp-sm) * 1.25);
+  display: flex;
+}
+
+.user-img {
+  display: inline-block;
+  position: relative;
+  width: rem(60);
+  height: rem(60);
+
+  line-height: rem(60);
+  font-size: var(--text);
+  color: var(--clr-white);
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+
+  flex-shrink: 0;
+  border-radius: 100%;
+  background-color: var(--clr-primary);
+}
+
+.user-info {
+  align-self: center;
+}
+
+@include maxMedia(xl) {
+  .user-img {
+    width: rem(56);
+    height: rem(56);
+    line-height: rem(56);
+  }
+
+  .user-stats {
+    margin-right: 2rem;
+  }
+}

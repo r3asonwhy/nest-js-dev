@@ -1,0 +1,55 @@
+/*--------------------*/
+/* + SEO Block        */
+/*--------------------*/
+.seo-section {
+  background: var(--clr-light-grey);
+}
+
+.seo-block {
+  --lines: 3;
+  --space: var(--sp-xs);
+  padding-block: var(--sp-md);
+
+  .text {
+    --text-space: var(--space);
+  }
+
+  >*+* {
+    margin-top: var(--space);
+  }
+}
+
+.seo-content {
+  --inActive-height: calc(1.33333em * var(--lines));
+}
+
+.toggle-content {
+  height: var(--inActive-height, 0px);
+  min-height: var(--inActive-height, 0px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toggle-btn {
+  cursor: pointer;
+}
+
+.toggle-btn::before {
+  content: attr(data-toggle-more);
+}
+
+.toggle-btn.is-active {
+  &::before {
+    content: attr(data-toggle-less);
+  }
+
+  svg {
+    transform: rotateX(180deg);
+  }
+}
+
+@include maxMedia(md) {
+  .seo-block {
+    --lines: 6;
+  }
+}

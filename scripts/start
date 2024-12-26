@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+cd /var/www/html/nodejs
+pm2 kill
+pm2 flush
+pm2 start dist/main.js --name automix-dev --watch --ignore-watch="public uploads public-upload"

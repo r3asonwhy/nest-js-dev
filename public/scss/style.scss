@@ -1,0 +1,67 @@
+@import "c-variables-mixins";
+
+
+// Helpers
+@import "helpers/_helpers-style";
+
+
+// Main banner
+@import "template/_main-banner";
+
+
+// Element styles
+@import "style/_breadcrumbs";
+@import "style/_banner";
+
+
+// product
+@import "style/_product";
+@import "style/_comments";
+
+
+// Template styles (home page)
+@import "template/_popular-category";
+@import "template/_brands";
+@import "template/_why-us";
+@import "template/_call-to";
+@import "template/_seo-block";
+
+
+// Footer
+@import "style/_footer";
+
+
+
+// Template styles
+@import "template/_lr-block";
+@import "template/_benefit";
+@import "template/_features";
+@import "template/_column";
+@import "template/_advertising-banner";
+@import "template/_tags";
+@import "template/_price-table";
+
+
+// Element styles
+@import "style/_tabs";
+@import "style/_accordion";
+@import "style/_pagination";
+
+
+// Pages
+@import "pages/_blog";
+@import "pages/_action";
+@import "pages/_contacts";
+@import "pages/_delivery";
+@import "pages/_vacancy";
+@import "pages/_404";
+
+
+// Other styles
+@import "style/_popups";
+@import "style/_cookies";
+
+
+
+// Cart
+@import "cart/_cart-style";

@@ -1,0 +1,37 @@
+/*--------------------*/
+/* + LR Block         */
+/*--------------------*/
+.lr-row {
+  --bs-gutter-x: calc(var(--sp-md)*2);
+  --bs-gutter-y: var(--sp-md);
+}
+
+.lr__image {
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: var(--rd-1);
+  }
+}
+
+.lr__content {
+  >*+* {
+    margin-top: var(--sp-xs);
+  }
+}
+
+@include maxMedia(xl) {
+  .lr-row {
+    --bs-gutter-x: var(--sp-md);
+  }
+}
+
+@include maxMedia(lg) {
+  .lr__content {
+    >*+* {
+      margin-top: var(--sp-sm);
+    }
+  }
+}

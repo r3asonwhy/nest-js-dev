@@ -1,0 +1,132 @@
+// bootstrap gutters
+.row {
+  --bs-gutter-x: var(--sp-sm);
+}
+
+.g-xl,
+.gy-xl {
+  --bs-gutter-y: var(--sp-xl);
+}
+
+.g-lg,
+.gy-lg {
+  --bs-gutter-y: var(--sp-lg);
+}
+
+.g-md,
+.gy-md {
+  --bs-gutter-y: var(--sp-md);
+}
+
+.g-sm,
+.gy-sm {
+  --bs-gutter-y: var(--sp-sm);
+}
+
+.g-xs,
+.gy-xs {
+  --bs-gutter-y: var(--sp-xs);
+}
+
+.g-2xs,
+.gy-2xs {
+  --bs-gutter-y: var(--sp-2xs);
+}
+
+.g-3xs,
+.gy-3xs {
+  --bs-gutter-y: var(--sp-3xs);
+}
+
+.g-xl,
+.gx-xl {
+  --bs-gutter-x: var(--sp-xl);
+}
+
+.g-lg,
+.gx-lg {
+  --bs-gutter-x: var(--sp-lg);
+}
+
+.g-md,
+.gx-md {
+  --bs-gutter-x: var(--sp-md);
+}
+
+.g-sm,
+.gx-sm {
+  --bs-gutter-x: var(--sp-sm);
+}
+
+.g-xs,
+.gx-xs {
+  --bs-gutter-x: var(--sp-xs);
+}
+
+.g-2xs,
+.gx-2xs {
+  --bs-gutter-x: var(--sp-2xs);
+}
+
+.g-3xs,
+.gx-3xs {
+  --bs-gutter-x: var(--sp-3xs);
+}
+
+
+// page margins
+.mt-xl {
+  margin-top: var(--sp-xl);
+}
+
+.mt-x {
+  margin-top: var(--sp-x);
+}
+
+.mt-lg {
+  margin-top: var(--sp-lg);
+}
+
+.mt-md {
+  margin-top: var(--sp-md);
+}
+
+.mt-sm {
+  margin-top: var(--sp-sm);
+}
+
+.mt-xs {
+  margin-top: var(--sp-xs);
+}
+
+.mt-2xs {
+  margin-top: var(--sp-2xs);
+}
+
+.mb-xl {
+  margin-bottom: var(--sp-xl);
+}
+
+.mb-x {
+  margin-bottom: var(--sp-x);
+}
+
+.mb-lg {
+  margin-bottom: var(--sp-lg);
+}
+
+.mb-md {
+  margin-bottom: var(--sp-md);
+}
+
+.mb-sm {
+  margin-bottom: var(--sp-sm);
+}
+
+.mb-xs {
+  margin-bottom: var(--sp-xs);
+}
+
+.mb-2xs {
+  margin-bottom: var(--sp-2xs);
+}

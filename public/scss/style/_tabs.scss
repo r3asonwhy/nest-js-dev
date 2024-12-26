@@ -1,0 +1,14 @@
+/*---------------------------*/
+/* + Tabs (not for styling)  */
+/*---------------------------*/
+._tabs-wrap {
+  position: relative;
+}
+
+:where(._tab) {
+  display: none;
+}
+
+._tab:first-child {
+  display: block;
+}

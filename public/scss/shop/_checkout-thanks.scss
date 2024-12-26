@@ -1,0 +1,109 @@
+/*---------------------*/
+/* + Thanks page       */
+/*---------------------*/
+.thank-section {
+    margin-inline: auto;
+    width: 100%;
+    max-width: rem(792);
+
+    .text {
+        --text-space: 0.25rem;
+    }
+}
+
+.thank-block {
+    padding: var(--sp-sm);
+    border-radius: var(--rd-1);
+    background-color: var(--clr-white);
+    box-shadow: var(--box-shadow);
+}
+
+.thank-head {
+    gap: var(--sp-xs);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: var(--text);
+    line-height: 1.33333em;
+    font-weight: 400;
+    color: var(--clr-text);
+    margin-bottom: var(--sp-sm);
+
+    b {
+        color: var(--clr-black);
+        font-weight: 600;
+    }
+
+    .time {
+        >*+* {
+            margin-left: var(--sp-xs);
+        }
+    }
+}
+
+.thank-info {
+    font-size: var(--text-s);
+    font-weight: 400;
+    line-height: 1.215em;
+    color: var(--clr-text);
+
+    gap: var(--sp-2xs) var(--sp-xs);
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    padding-top: var(--sp-sm);
+    border-top: 0.0625rem solid var(--clr-border);
+
+    b {
+        text-align: right;
+        font-weight: 700;
+        color: var(--clr-black);
+    }
+
+    &+& {
+        margin-top: var(--sp-sm);
+    }
+}
+
+.thank-items {
+
+    .order-product-promo__top,
+    .order-product__remove,
+    .thumb-input-number {
+        display: none;
+    }
+
+    .order-product:last-child {
+        border-bottom: none;
+    }
+
+    .order-product__price {
+        align-items: flex-end;
+        margin-left: auto;
+    }
+}
+
+@include minMedia(sm) {
+    .thank-items {
+        .order-product__title {
+            max-width: rem(420);
+        }
+
+        .order-product__desc {
+            grid-template-columns: 1fr auto;
+            align-items: center;
+        }
+
+        .order-product-plus {
+            .order-product__desc {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .order-product-plus-gift:not(.order-product-plus) .order-product__title {
+            min-height: 2.42em;
+            align-items: center;
+        }
+    }
+}

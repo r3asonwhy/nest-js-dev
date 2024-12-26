@@ -1,0 +1,71 @@
+/*---------------------*/
+/* + FILTER thumbs     */
+/*---------------------*/
+.fl-thumbs {
+    padding: var(--sp-xs);
+    gap: var(--sp-2xs);
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: var(--rd-2);
+    background-color: var(--clr-light-grey);
+
+    &:has(.fl-thumb_clear:only-child) {
+        display: none;
+    }
+}
+
+.fl-thumb {
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    gap: var(--sp-3xs);
+    display: inline-flex;
+    align-items: center;
+
+    padding: 0.5em 0.875em;
+    font-size: var(--text-xs);
+    line-height: 1em;
+    color: var(--clr-black);
+    font-weight: 400;
+    border-radius: var(--rd-2);
+    border: rem(1) solid var(--clr-border);
+    transition: var(--transition-1);
+
+    b {
+        font-weight: 700;
+    }
+
+    &_clear {
+        color: var(--clr-primary);
+        font-size: var(--text-s);
+        font-weight: 700;
+        padding: 0;
+        border: none;
+        background: transparent;
+    }
+
+    .btn-close {
+        --bw: 1.25em;
+        color: var(--clr-primary);
+
+        &::before,
+        &::after {
+            height: rem(1);
+        }
+    }
+}
+
+@include hoverMedia() {
+    .fl-thumb:hover {
+        border-color: var(--clr-black);
+
+        .btn-close {
+            color: var(--clr-red);
+        }
+    }
+
+    .fl-thumb_clear:hover {
+        color: var(--clr-red);
+    }
+}

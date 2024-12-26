@@ -1,0 +1,78 @@
+/*-------------------*/
+/* + Breadcrumbs     */
+/*-------------------*/
+.breadcrumbs {
+  --br-fz: 0.875rem;
+  --br-space: 1rem;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  margin-block: 1rem;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  display: block;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  ul {
+    min-width: max-content;
+    line-height: 0;
+    padding-right: var(--br-space);
+  }
+
+  li {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: var(--br-fz);
+    line-height: 1em;
+    color: var(--clr-grey);
+    scroll-snap-align: start;
+    scroll-margin-left: var(--br-space);
+
+    &:after {
+      content: "";
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      width: rem(6);
+      height: rem(6);
+      margin: 0 0.625rem;
+      border-radius: 100%;
+      background-color: currentColor;
+    }
+
+    &:last-child {
+      color: var(--clr-black);
+
+      &:after {
+        content: none;
+      }
+    }
+
+  }
+
+  a {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  svg {
+    width: 1.429em;
+    height: 1.429em;
+  }
+
+
+  &+.section {
+    margin-top: 0;
+  }
+}
+
+@include minMedia(xl) {
+  .breadcrumbs li a:hover {
+    color: var(--clr-secondary);
+  }
+}

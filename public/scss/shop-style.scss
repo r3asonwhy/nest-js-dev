@@ -1,0 +1,21 @@
+@import "c-variables-mixins";
+
+// catalog
+@import "shop/_catalog";
+@import "shop/_catalog-thumbs";
+@import "shop/_catalog-menu";
+@import "shop/_catalog-horizontal";
+
+// Product detail
+@import "shop/_product-detail-section";
+@import "shop/_product-detail-content";
+@import "shop/_scroll-links";
+@import "shop/_fixed-panel";
+@import "shop/_comment-banner";
+@import "shop/_comparison";
+
+// checkout
+@import "shop/_checkout";
+@import "shop/_checkout-steps";
+@import "shop/_checkout-wrap";
+@import "shop/_checkout-thanks";

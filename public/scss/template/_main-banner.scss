@@ -1,0 +1,233 @@
+/*--------------------*/
+/* + Main banner      */
+/*--------------------*/
+.main-banner {
+    font-size: var(--text-xs);
+
+    &.section {
+        margin-top: var(--sp-2xs);
+    }
+}
+
+.main-banner__nav {
+    flex-shrink: 0;
+    padding-top: var(--sp-2xs);
+    border: none;
+    border-radius: var(--rd-1);
+    background-color: var(--clr-white);
+    box-shadow: var(--box-shadow);
+    margin-bottom: calc(0.625rem + var(--sp-sm));
+}
+
+.main-banner__content {
+    display: flex;
+    gap: var(--sp-2xs);
+}
+
+.main-banner__swiper {
+    overflow: hidden;
+    width: 100%;
+
+    .swiper-container:not(.swiper-initialized) {
+        position: relative;
+        height: rem(100);
+        overflow: hidden;
+    }
+
+    .swiper-slide {
+        margin: 0;
+    }
+
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        right: auto;
+        left: var(--sp-xs);
+        border: none;
+        color: var(--clr-white);
+        background: rgba(255, 255, 255, .4);
+    }
+
+    .swiper-button-next {
+        right: var(--sp-xs);
+        left: auto;
+    }
+}
+
+.main-banner__slide {
+    position: relative;
+
+    .image-cover {
+        display: block;
+        padding-bottom: 152.906%;
+        border-radius: var(--rd-1);
+    }
+}
+
+.main-banner__slide-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-block: var(--sp-sm);
+    padding-inline: calc(var(--sp-xs) * 0.875);
+
+    gap: var(--sp-xs);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+        font-size: var(--h3);
+        line-height: 1.07143em;
+        text-align: center;
+        margin-bottom: auto;
+    }
+
+    .btn {
+        height: var(--btn-height-m);
+    }
+
+    &.type-2 {
+        .title {
+            margin-top: auto;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.main-banner__category-btn {
+    color: var(--clr-white);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-3xs);
+
+    svg {
+        width: 0.875rem;
+        height: 0.875rem;
+    }
+}
+
+@include minMedia(xl) {
+    .main-banner__category-btn:hover {
+        color: var(--clr-primary);
+    }
+
+    .main-banner__nav {
+        order: -1;
+    }
+
+    .main-banner__nav .swiper-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .main-banner__nav .swiper-slide {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-banner__swiper {
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            color: var(--clr-black);
+            background: rgba(255, 255, 255, .75);
+        }
+    }
+}
+
+@include maxMedia(xl) {
+    .main-banner__content {
+        display: block;
+    }
+
+    .main-banner__swiper {
+        overflow: visible;
+
+        .swiper-container {
+            overflow: visible;
+        }
+    }
+
+    .main-banner__nav {
+        display: block;
+        width: 100%;
+        margin-top: var(--sp-sm);
+        margin-bottom: 0;
+        padding: 0;
+        border: none;
+        overflow: visible;
+
+        .swiper-container {
+            overflow: visible;
+        }
+
+        .swiper-slide {
+            width: auto;
+            height: auto;
+        }
+    }
+
+    .main-banner__nav .c-item {
+        width: rem(150);
+        flex-direction: column;
+        display: flex;
+        box-sizing: border-box;
+        border-radius: var(--rd-1);
+        padding: var(--sp-2xs);
+        height: 100%;
+        border: solid rem(1) var(--clr-border);
+        text-align: center;
+        gap: var(--sp-3xs);
+
+        .icon-hoverable:first-child {
+            width: 3.125rem;
+        }
+
+        svg:last-child {
+            display: none;
+        }
+
+        span {
+            @include lines(2);
+            word-break: break-all;
+        }
+    }
+}
+
+@include maxMedia(lg) {
+    // .main-banner__slide .image-cover {
+    //     padding-bottom: 60%;
+    // }
+
+    .main-banner__nav .c-item {
+        font-size: .875rem;
+    }
+
+    .main-banner__slide-content {
+        gap: var(--sp-2xs);
+        padding: var(--sp-2xs);
+
+        .btn {
+            height: 2rem;
+            font-size: .75rem;
+        }
+
+        .main-banner__slide-content.type-1 .title {
+            margin-top: auto;
+            color: var(--clr-white);
+            font-size: var(--h2);
+        }
+    }
+}
+
+@include maxMedia(md) {
+    .main-banner__nav .c-item {
+        width: rem(100);
+        font-size: .75rem;
+    }
+}

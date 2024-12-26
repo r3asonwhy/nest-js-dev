@@ -1,0 +1,25 @@
+/*--------------------*/
+/* + CABINET REVIEW   */
+/*--------------------*/
+.cb-reviews {
+    max-width: rem(1112);
+
+    >*+* {
+        margin-top: var(--sp-sm);
+    }
+}
+
+.cb-review {
+    padding-inline: var(--sp-sm);
+    border-radius: var(--rd-1);
+    background-color: var(--clr-white);
+    box-shadow: var(--box-shadow);
+
+    .order-product {
+        border: none;
+    }
+
+    .cmt-item {
+        border-bottom: none;
+    }
+}

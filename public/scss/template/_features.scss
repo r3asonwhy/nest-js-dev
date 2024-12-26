@@ -1,0 +1,33 @@
+/*--------------------*/
+/* + Features section */
+/*--------------------*/
+.ftr-item {
+    padding: calc(var(--sp-sm) * 1.2);
+    border-radius: var(--rd-1);
+    background-color: var(--clr-white);
+    box-shadow: var(--box-shadow);
+
+    .title+.text {
+        margin-top: var(--sp-2xs);
+    }
+}
+
+.ftr-img {
+    padding-bottom: 60.8%;
+    margin-bottom: calc(var(--sp-sm) * 1.2);
+
+    img {
+        border-radius: var(--rd-2);
+    }
+}
+
+
+@include maxMedia(md) {
+    .ftr-item {
+        padding: var(--sp-sm);
+    }
+
+    .ftr-img {
+        margin-bottom: var(--sp-sm);
+    }
+}

@@ -1,0 +1,54 @@
+/*--------------------*/
+/* + CABINET INFO     */
+/*--------------------*/
+.cb-form {
+    max-width: rem(1022);
+    width: 100%;
+    padding: var(--sp-sm);
+    border-radius: var(--rd-1);
+    background-color: var(--clr-white);
+    box-shadow: var(--box-shadow);
+
+    &+& {
+        margin-top: var(--sp-sm);
+    }
+
+    >*+* {
+        margin-top: var(--sp-xs);
+    }
+
+    .form-block {
+        --space: 1rem;
+    }
+}
+
+.cb-empty-message {
+    text-align: center;
+    max-width: rem(600);
+    margin-inline: auto;
+}
+
+.cb-empty-img {
+    overflow: hidden;
+    position: relative;
+    width: min(rem(245), 50%);
+    margin-inline: auto;
+
+    img {
+        display: block;
+        height: auto;
+        width: 100%;
+    }
+}
+
+@include maxMedia(md) {
+    .cb-form {
+        gap: .5rem;
+        flex-direction: column;
+
+        .form-block {
+            min-width: unset;
+            width: 100%;
+        }
+    }
+}

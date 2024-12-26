@@ -1,0 +1,71 @@
+version: 0.2
+env:
+  parameter-store:
+    MYSQL_URL: /$ENV_CONF/MYSQL_URL
+    MYSQL_PORT: /$ENV_CONF/MYSQL_PORT
+    MYSQL_USER: /$ENV_CONF/MYSQL_USER
+    MYSQL_PASSWORD: /$ENV_CONF/MYSQL_PASSWORD
+    MYSQL_NAME: /$ENV_CONF/MYSQL_NAME
+    COGNITO_POOL_ID: /$ENV_CONF/COGNITO_POOL_ID
+    COGNITO_APP_CLIENT_ID: /$ENV_CONF/COGNITO_APP_CLIENT_ID
+    AWS_ACCESS_KEY_ID: /$ENV_CONF/AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: /$ENV_CONF/AWS_SECRET_ACCESS_KEY
+    AWS_REGION_NAME: /$ENV_CONF/AWS_REGION_NAME
+    FRONT_URL: /$ENV_CONF/FRONT_URL
+
+phases:
+  pre_build:
+    commands:
+      - echo installing dependencies...
+      - npm i -g @nestjs/cli
+      - npm install
+  build:
+    commands:
+      - echo Building the application...
+      - npm run build
+      - echo Generating .env file...
+      - |
+        cat << EOF > .env
+        ENV="$ENV_CONF"
+        DB_TYPE=mysql
+        DB_SYNC=false
+        DB_ALTER=false
+        MYSQL_DB_HOST="${MYSQL_URL}"
+        MYSQL_DB_PORT="${MYSQL_PORT}"
+        MYSQL_DB_USER="${MYSQL_USER}"
+        MYSQL_DB_PASSWORD="${MYSQL_PASSWORD}"
+        MYSQL_DB_NAME="${MYSQL_NAME}"
+        APP_ENV=production
+        APP_NAME=automix
+        APP_URL="${FRONT_URL}"
+        APP_PORT=3000
+        APP_HOST="${FRONT_URL}"
+        CODE_VALIDITY_PERIOD=10
+        JWT_SECRET="sV2aK4cS2bQ7vC9y"
+        ACCESS_TOKEN_TTL=1h
+        REFRESH_TOKEN_TTL=7d
+        SMTP_HOST=smtp.gmail.com
+        SMTP_PORT=465
+        SMTP_USER=nikiforenko.serhii@gmail.com
+        GOOGLE_GEN_PASSWORD=vsjhbcekulrwsdal
+        CLIENT_URL="${FRONT_URL}"
+        COGNITO_JWKS_URI="https://cognito-idp.${AWS_REGION_NAME}.amazonaws.com/${COGNITO_POOL_ID}/.well-known/jwks.json"
+        AWS_COGNITO_POOL_ID="${COGNITO_POOL_ID}"
+        AWS_COGNITO_CLIENT_ID="${COGNITO_APP_CLIENT_ID}"
+        AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}"
+        AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"
+        AWS_REGION_NAME="${AWS_REGION_NAME}"
+        TURBOSMS_API_URL="https://api.turbosms.ua/message/send.json"
+        TURBOSMS_API_TOKEN="2127a1204687078364e9374e1d86cb8cfd8b0146"
+        TURBOSMS_SENDER=Best-Shop
+        EOF
+  post_build:
+    commands:
+      - if [ ! -f "dist/main.js" ]; then echo "main.js not found"; exit 1; fi
+      - if [ ! -d "dist/i18n" ]; then echo "i18n directory not found"; exit 1; fi
+      - echo Build complete.
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no

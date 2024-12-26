@@ -1,0 +1,23 @@
+@include minMedia(lg) {
+    .sticky-lg {
+        position: sticky !important;
+        top: calc(var(--h-height) + var(--sp-2xs));
+        transition: top var(--transition-1);
+    }
+
+    .hide-top-header .sticky-lg {
+        top: calc(var(--h-bottom-height) + var(--sp-2xs));
+    }
+}
+
+@include minMedia(xl) {
+    .sticky-xl {
+        position: sticky !important;
+        top: calc(var(--h-height) + var(--sp-2xs));
+        transition: top var(--transition-1);
+    }
+
+    .hide-top-header .sticky-xl {
+        top: calc(var(--h-bottom-height) + var(--sp-2xs));
+    }
+}

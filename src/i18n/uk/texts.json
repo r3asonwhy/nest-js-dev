@@ -1,0 +1,79 @@
+{
+  "auth": {
+    "REGISTRATION_SUCCESS": "Реєстрація успішна",
+    "LOGIN_SUCCESS": "Вхід успішний",
+    "LOGOUT_SUCCESS": "Вихід виконано успішно",
+    "TOKEN_REFRESHED": "Токен успішно оновлено",
+    "EMAIL_VERIFIED_SUCCESS": "Електронна пошта успішно підтверджена",
+    "VERIFICATION_EMAIL_RESENT": "Лист для підтвердження було повторно надіслано",
+    "PASSWORD_RESET_CODE_SENT": "Код для скидання пароля було надіслано на вашу пошту",
+    "PASSWORD_UPDATED": "Пароль було успішно оновлено",
+    "VERIFICATION_CODE_RESENT": "Код підтвердження успішно надіслано повторно"
+  },
+  "user": {
+    "CREATED_SUCCESS": "Користувача успішно створено",
+    "DELETED_SUCCESSFULLY": "Користувача успішно видалено",
+    "FIELD_CHANGED": "Змінено поле"
+  },
+  "mail": {
+    "VERIFY_EMAIL_SUBJECT": "Підтвердження вашої електронної пошти",
+    "VERIFY_EMAIL_BODY": "Клацніть по посиланню нижче, щоб підтвердити вашу електронну пошту:",
+    "VERIFY_EMAIL_BUTTON": "Підтвердити Email",
+    "PASSWORD_RESET_REQUEST": "Запит на скидання пароля",
+    "RESET_EMAIL_BODY_GREETING": "Вітаємо, {firstName},",
+    "RESET_EMAIL_BODY_INSTRUCTION": "Ви запросили скидання пароля. Використовуйте наступний код для скидання вашого пароля:",
+    "RESET_EMAIL_IGNORE": "Якщо ви не робили цей запит, просто проігноруйте цей лист",
+    "PASSWORD_SUCCESSFULLY_UPDATED": "Пароль успішно оновлено",
+    "PASSWORD_UPDATED_GREETING": "Вітаємо, {firstName},",
+    "PASSWORD_UPDATED_MESSAGE": "Ваш пароль успішно оновлено. Якщо ви не запитували цю зміну, негайно зверніться до служби підтримки"
+  },
+  "log": {
+    "FIELD_ADDED": "Додано поле",
+    "FIELD_CHANGED": "Змінено поле",
+    "FIELD_REMOVED": "Видалено поле"
+  },
+  "file": {
+    "DELETED_SUCCESSFULLY": "Файл успішно видалено"
+  },
+  "sms": {
+    "PASSWORD_RESET_CODE": "Ваш код для відновлення пароля: {code}"
+  },
+  "popups": {
+    "LOGIN": "Увійти",
+    "REGISTER": "Зареєструватись",
+    "ENTER_PHONE": "Введіть телефон*",
+    "ENTER_PASSWORD": "Ваш пароль*",
+    "REQUIRED_FIELD_ERROR": "Це поле є обов'язковим для заповнення.",
+    "FORGOT_PASSWORD": "Забули пароль?",
+    "FIRST_NAME_PLACEHOLDER": "Ваше ім'я*",
+    "LAST_NAME_PLACEHOLDER": "Ваше прізвище*",
+    "PHONE_PLACEHOLDER": "Ваш номер телефону*",
+    "EMAIL_PLACEHOLDER": "Ваш email*",
+    "PASSWORD_PLACEHOLDER": "Ваш пароль*",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Повторити пароль*",
+    "FIELD_REQUIRED_ERROR": "Заповніть поле",
+    "AGREE_TO_TERMS": "Погоджуюся з",
+    "TERMS_LINK": "Правилами користування",
+    "PASSWORD_MISMATCH_ERROR": "Ваш пароль не збігається!",
+    "REGISTER_BUTTON": "Зареєструватись",
+    "ALREADY_REGISTERED": "Вже зареєстровані?",
+    "REGISTRATION_SUCCESS_TITLE": "Реєстрація пройшла успішно",
+    "REGISTRATION_SUCCESS_MESSAGE": "Вітаємо з успішною реєстрацією на нашому сайті",
+    "VIEW_PRODUCTS_BUTTON": "Переглянути товари",
+    "RESTORE_PASSWORD_TITLE": "Відновити пароль",
+    "RESTORE_PASSWORD_INSTRUCTION": "Введіть номер телефону, на який буде відправлено код підтвердження",
+    "ENTER_PHONE_PLACEHOLDER": "Введіть телефон",
+    "INVALID_PHONE_FORMAT": "Невірний формат телефону!",
+    "SEND_CODE_BUTTON": "Надіслати код",
+    "BACK_TO_LABEL": "Повернутись до",
+    "ENTER_CONFIRMATION_CODE_MESSAGE": "Введіть код підтвердження, надісланий на вказаний номер",
+    "INVALID_CODE_ERROR": "Не вірно введений код",
+    "CONFIRM_BUTTON": "Підтвердити",
+    "RESEND_CODE_BUTTON": "Надіслати код повторно",
+    "CREATE_NEW_PASSWORD_MESSAGE": "Створіть новий пароль для вашого акаунту",
+    "NEW_PASSWORD_PLACEHOLDER": "Ваш пароль*",
+    "PASSWORD_CHANGED_TITLE": "Пароль успішно змінений",
+    "PASSWORD_CHANGED_MESSAGE": "Увійдіть в свій аккаунт використовуючи новий пароль",
+    "LOGIN_BUTTON": "Увійти в кабінет"
+  }
+}

@@ -1,0 +1,413 @@
+{{#switch popupName}}
+
+{{#case "login"}}
+<!-- login ** -->
+<div class="popup-content" data-rel="login">
+    <div class="layer-close"></div>
+
+    <div class="popup-container">
+        <div class="popup-decor">
+            <img width="60" height="60" src="/img/popup/popup-img-8.svg" alt="" loading="lazy">
+        </div>
+
+        <div class="popup-align">
+            <div class="popup-tabs">
+                <div class="is-active">{{t 'popups.LOGIN'}}</div>
+                <button class="open-popup" data-rel="registration">{{t 'popups.REGISTER'}}</button>
+            </div>
+
+            <form action="" method="post" class="form-block" id="login_popup_form">
+                <div class="input-field">
+                    <div class="input-placeholder">{{t 'popups.ENTER_PHONE'}}</div>
+                    <input class="input login_phone_field" type="tel" required>
+                    <div class="input-error">{{t 'popups.REQUIRED_FIELD_ERROR'}}</div>
+                </div>
+
+                <div class="input-field input-field__icon-wrap">
+                    <div class="input-placeholder">{{t 'popups.ENTER_PASSWORD'}}</div>
+                    <input class="input login_password_field" type="password" required>
+                    <div class="input-field__icon input-field__pass-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+                            <g>
+                                <path fill="currentColor"
+                                    d="m2.62 11.255.715-.71A7.03 7.03 0 0 1 1.535 8C2.55 5.465 5.35 3.5 8 3.5a6.19 6.19 0 0 1 2 .36l.775-.78A7.36 7.36 0 0 0 8 2.5 8.345 8.345 0 0 0 .53 7.83a.5.5 0 0 0 0 .34 8 8 0 0 0 2.09 3.085Z" />
+                                <path fill="currentColor"
+                                    d="M6 7.865a2 2 0 0 1 1.85-1.85l.905-.91A3 3 0 0 0 5.09 8.77L6 7.865ZM15.47 7.83a8.2 8.2 0 0 0-2.87-3.72L15 1.705 14.295 1 1 14.295l.705.705 2.55-2.55A7.645 7.645 0 0 0 8 13.5a8.346 8.346 0 0 0 7.47-5.33.5.5 0 0 0 0-.34ZM10 8a2 2 0 0 1-3 1.72L9.72 7A2 2 0 0 1 10 8Zm-2 4.5a6.524 6.524 0 0 1-3-.79l1.27-1.27a3 3 0 0 0 4.175-4.175L11.88 4.83A7.27 7.27 0 0 1 14.465 8C13.45 10.535 10.65 12.5 8 12.5Z" />
+                            </g>
+                            <g>
+                                <path fill="currentColor"
+                                    d="M15.47 7.83A8.345 8.345 0 0 0 8 2.5 8.345 8.345 0 0 0 .53 7.83a.5.5 0 0 0 0 .34A8.345 8.345 0 0 0 8 13.5a8.346 8.346 0 0 0 7.47-5.33.5.5 0 0 0 0-.34ZM8 12.5c-2.65 0-5.45-1.965-6.465-4.5C2.55 5.465 5.35 3.5 8 3.5s5.45 1.965 6.465 4.5C13.45 10.535 10.65 12.5 8 12.5Z" />
+                                <path fill="currentColor"
+                                    d="M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="input-error">{{t 'popups.REQUIRED_FIELD_ERROR'}}</div>
+                </div>
+
+                <!-- to show message remove class "d-none" -->
+                <div class="form-block-message d-none"></div>
+
+                <button class="btn btn_secondary btn_block">
+                    <b>{{t 'popups.LOGIN'}}</b>
+                </button>
+            </form>
+
+            <button class="btn-link open-popup" data-rel="pass-restore-1">
+                <b>{{t 'popups.FORGOT_PASSWORD'}}</b>
+            </button>
+        </div>
+        <button class="btn-close close-popup"></button>
+    </div>
+</div>
+{{/case}}
+
+{{#case "registration"}}
+<!-- Registration ** -->
+<div class="popup-content" data-rel="registration">
+    <div class="layer-close"></div>
+
+    <div class="popup-container">
+        <div class="popup-decor">
+            <img width="60" height="60" src="/img/popup/popup-img-8.svg" alt="" loading="lazy">
+        </div>
+
+        <div class="popup-align">
+            <div class="popup-tabs">
+                <button class="open-popup" data-rel="login">{{t 'popups.LOGIN'}}</button>
+                <div class="is-active">{{t 'popups.REGISTER'}}</div>
+            </div>
+
+            <form action="" method="post" class="form-block" id="register_popup_form">
+                <div class="input-field">
+                    <div class="input-placeholder">{{t 'popups.FIRST_NAME_PLACEHOLDER'}}</div>
+                    <input class="input register_first_name_field" type="text" required>
+                    <div class="input-error">{{t 'popups.FIELD_REQUIRED_ERROR'}}</div>
+                </div>
+                <div class="input-field">
+                    <div class="input-placeholder">{{t 'popups.LAST_NAME_PLACEHOLDER'}}</div>
+                    <input class="input register_last_name_field" type="text" required>
+                    <div class="input-error">{{t 'popups.FIELD_REQUIRED_ERROR'}}</div>
+                </div>
+                <div class="input-field">
+                    <div class="input-placeholder">{{t 'popups.PHONE_PLACEHOLDER'}}</div>
+                    <input class="input register_phone_field" type="tel" required>
+                    <div class="input-error">{{t 'popups.FIELD_REQUIRED_ERROR'}}</div>
+                </div>
+                <div class="input-field">
+                    <div class="input-placeholder">{{t 'popups.EMAIL_PLACEHOLDER'}}</div>
+                    <input class="input register_email_field" type="email" required>
+                    <div class="input-error">{{t 'popups.FIELD_REQUIRED_ERROR'}}</div>
+                </div>
+                <div class="input-field input-field__icon-wrap">
+                    <div class="input-placeholder">{{t 'popups.PASSWORD_PLACEHOLDER'}}</div>
+                    <input class="input register_password_field" type="password" required>
+                    <div class="input-field__icon input-field__pass-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+                            <g>
+                                <path fill="currentColor"
+                                    d="m2.62 11.255.715-.71A7.03 7.03 0 0 1 1.535 8C2.55 5.465 5.35 3.5 8 3.5a6.19 6.19 0 0 1 2 .36l.775-.78A7.36 7.36 0 0 0 8 2.5 8.345 8.345 0 0 0 .53 7.83a.5.5 0 0 0 0 .34 8 8 0 0 0 2.09 3.085Z" />
+                                <path fill="currentColor"
+                                    d="M6 7.865a2 2 0 0 1 1.85-1.85l.905-.91A3 3 0 0 0 5.09 8.77L6 7.865ZM15.47 7.83a8.2 8.2 0 0 0-2.87-3.72L15 1.705 14.295 1 1 14.295l.705.705 2.55-2.55A7.645 7.645 0 0 0 8 13.5a8.346 8.346 0 0 0 7.47-5.33.5.5 0 0 0 0-.34ZM10 8a2 2 0 0 1-3 1.72L9.72 7A2 2 0 0 1 10 8Zm-2 4.5a6.524 6.524 0 0 1-3-.79l1.27-1.27a3 3 0 0 0 4.175-4.175L11.88 4.83A7.27 7.27 0 0 1 14.465 8C13.45 10.535 10.65 12.5 8 12.5Z" />
+                            </g>
+                            <g>
+                                <path fill="currentColor"
+                                    d="M15.47 7.83A8.345 8.345 0 0 0 8 2.5 8.345 8.345 0 0 0 .53 7.83a.5.5 0 0 0 0 .34A8.345 8.345 0 0 0 8 13.5a8.346 8.346 0 0 0 7.47-5.33.5.5 0 0 0 0-.34ZM8 12.5c-2.65 0-5.45-1.965-6.465-4.5C2.55 5.465 5.35 3.5 8 3.5s5.45 1.965 6.465 4.5C13.45 10.535 10.65 12.5 8 12.5Z" />
+                                <path fill="currentColor"
+                                    d="M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="input-error">{{t 'popups.FIELD_REQUIRED_ERROR'}}</div>
+                </div>
+                <div class="input-field input-field__icon-wrap test-error">
+                    <div class="input-placeholder">{{t 'popups.CONFIRM_PASSWORD_PLACEHOLDER'}}</div>
+                    <input class="input register_conf_password_field" type="password" required>
+                    <div class="input-field__icon input-field__pass-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+                            <g>
+                                <path fill="currentColor"
+                                    d="m2.62 11.255.715-.71A7.03 7.03 0 0 1 1.535 8C2.55 5.465 5.35 3.5 8 3.5a6.19 6.19 0 0 1 2 .36l.775-.78A7.36 7.36 0 0 0 8 2.5 8.345 8.345 0 0 0 .53 7.83a.5.5 0 0 0 0 .34 8 8 0 0 0 2.09 3.085Z" />
+                                <path fill="currentColor"
+                                    d="M6 7.865a2 2 0 0 1 1.85-1.85l.905-.91A3 3 0 0 0 5.09 8.77L6 7.865ZM15.47 7.83a8.2 8.2 0 0 0-2.87-3.72L15 1.705 14.295 1 1 14.295l.705.705 2.55-2.55A7.645 7.645 0 0 0 8 13.5a8.346 8.346 0 0 0 7.47-5.33.5.5 0 0 0 0-.34ZM10 8a2 2 0 0 1-3 1.72L9.72 7A2 2 0 0 1 10 8Zm-2 4.5a6.524 6.524 0 0 1-3-.79l1.27-1.27a3 3 0 0 0 4.175-4.175L11.88 4.83A7.27 7.27 0 0 1 14.465 8C13.45 10.535 10.65 12.5 8 12.5Z" />
+                            </g>
+                            <g>
+                                <path fill="currentColor"
+                                    d="M15.47 7.83A8.345 8.345 0 0 0 8 2.5 8.345 8.345 0 0 0 .53 7.83a.5.5 0 0 0 0 .34A8.345 8.345 0 0 0 8 13.5a8.346 8.346 0 0 0 7.47-5.33.5.5 0 0 0 0-.34ZM8 12.5c-2.65 0-5.45-1.965-6.465-4.5C2.55 5.465 5.35 3.5 8 3.5s5.45 1.965 6.465 4.5C13.45 10.535 10.65 12.5 8 12.5Z" />
+                                <path fill="currentColor"
+                                    d="M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="input-error">{{t 'popups.FIELD_REQUIRED_ERROR'}}</div>
+                </div>
+
+                <div class="ch-box-wrap">
+                    <label class="ch-box">
+                        <input type="checkbox" name="privacy" value="1">
+                        <span>
+                            {{t 'popups.AGREE_TO_TERMS'}} <a href="/privacy.php">{{t 'popups.TERMS_LINK'}}</a>
+                        </span>
+                    </label>
+                </div>
+
+                <!-- to show message remove class "d-none" -->
+                <div class="form-block-message d-none">
+                    {{t 'popups.PASSWORD_MISMATCH_ERROR'}}
+                </div>
+
+                <button class="btn btn_secondary btn_block">
+                    <b>{{t 'popups.REGISTER'}}</b>
+                </button>
+            </form>
+
+            <div>
+                <span class="text text-s">
+                    <strong>{{t 'popups.ALREADY_REGISTERED'}}</strong>
+                </span>
+                <button class="btn-link open-popup" data-rel="login">
+                    <b>{{t 'popups.LOGIN'}}</b>
+                </button>
+            </div>
+        </div>
+        <button class="btn-close close-popup"></button>
+    </div>
+</div>
+{{/case}}
+
+{{#case "reg-is-successful"}}
+<!-- Registration is successful ** -->
+<div class="popup-content" data-rel="reg-is-successful">
+    <div class="layer-close"></div>
+
+    <div class="popup-container">
+        <div class="popup-decor">
+            <img width="60" height="60" src="/img/popup/popup-img-10.svg" alt="" loading="lazy">
+        </div>
+
+        <div class="popup-align">
+            <div class="title h3 text-center">
+                {{t 'popups.REGISTRATION_SUCCESS_TITLE'}}
+            </div>
+            <div class="text text-center">
+                {{t 'popups.REGISTRATION_SUCCESS_MESSAGE'}}
+            </div>
+
+            <a class="btn btn_secondary btn_block" href="/client/home">
+                <b>{{t 'popups.VIEW_PRODUCTS_BUTTON'}}</b>
+            </a>
+        </div>
+        <button class="btn-close close-popup"></button>
+    </div>
+</div>
+{{/case}}
+
+{{#case "pass-restore-1"}}
+<!-- Password restore ** -->
+<div class="popup-content" data-rel="pass-restore-1">
+    <div class="layer-close"></div>
+
+    <div class="popup-container">
+        <div class="popup-decor">
+            <img width="60" height="60" src="/img/popup/popup-img-9.svg" alt="" loading="lazy">
+        </div>
+
+        <div class="popup-align">
+            <div class="title h3 text-center">
+                {{t 'popups.RESTORE_PASSWORD_TITLE'}}
+            </div>
+            <div class="text text-center">
+                {{t 'popups.RESTORE_PASSWORD_INSTRUCTION'}}
+            </div>
+
+            <form method="post" class="form-block" id="restore_pass_form">
+                <div class="input-field">
+                    <div class="input-placeholder">{{t 'popups.ENTER_PHONE_PLACEHOLDER'}}</div>
+                    <input class="input restore_pass_phone" type="tel" required>
+                    <div class="input-error">{{t 'popups.FIELD_REQUIRED_ERROR'}}</div>
+                </div>
+
+                <!-- to show message remove class "d-none" -->
+                <div class="form-block-message d-none">
+                    {{t 'popups.INVALID_PHONE_FORMAT'}}
+                </div>
+
+                <button type="submit" class="btn btn_secondary btn_block" data-rel="pass-restore-2">
+                    <b>{{t 'popups.SEND_CODE_BUTTON'}}</b>
+                </button>
+            </form>
+
+            <div>
+                <span class="text text-s">
+                    <strong>{{t 'popups.BACK_TO_LABEL'}}</strong>
+                </span>
+                <button class="btn-link open-popup" data-rel="login">
+                    <b>{{t 'popups.LOGIN'}}</b>
+                </button>
+            </div>
+        </div>
+        <button class="btn-close close-popup"></button>
+    </div>
+</div>
+{{/case}}
+
+{{#case "pass-restore-2"}}
+<!-- Confirmation code ** -->
+<div class="popup-content" data-rel="pass-restore-2">
+    <div class="layer-close"></div>
+
+    <div class="popup-container">
+        <div class="popup-decor">
+            <img width="60" height="60" src="/img/popup/popup-img-9.svg" alt="" loading="lazy">
+        </div>
+
+        <div class="popup-align">
+            <div class="title h3 text-center">
+                {{t 'popups.RESTORE_PASSWORD_TITLE'}}
+            </div>
+            <div class="text text-center">
+                {{t 'popups.ENTER_CONFIRMATION_CODE_MESSAGE'}} <b id="code_popup_phone" class="clr-black">{{phone}}</b>
+            </div>
+
+            <form method="post" id="verify_popup_form" class="form-block">
+                <div class="input-field text-center">
+                    <div class="code-input">
+                        <input class="input" inputmode="numeric" type="number" placeholder="_">
+                        <input class="input" inputmode="numeric" type="number" placeholder="_">
+                        <input class="input" inputmode="numeric" type="number" placeholder="_">
+                        <input class="input" inputmode="numeric" type="number" placeholder="_">
+                    </div>
+                    <div class="input-error">{{t 'popups.FIELD_REQUIRED_ERROR'}}</div>
+                </div>
+                
+                <!-- to show message remove class "d-none" -->
+                <div class="form-block-message d-none">
+                    {{t 'popups.INVALID_CODE_ERROR'}}
+                </div>
+
+                <button type="submit" class="btn btn_secondary btn_block" data-rel="pass-restore-3">
+                    <b>{{t 'popups.CONFIRM_BUTTON'}}</b>
+                </button>
+
+                <div class="resend-code" id="resend_verify_email">
+                    <button type="submit" class="btn-link text-s">
+                        {{t 'popups.RESEND_CODE_BUTTON'}}<span class="resend-timer-wrap" style="display: none;">:
+                            <span class="resend-timer clr-secondary">23</span>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <button class="btn-close close-popup"></button>
+    </div>
+</div>
+{{/case}}
+
+{{#case "pass-restore-3"}}
+<!-- pass-restore-3 popup  -->
+<div class="popup-content" data-rel="pass-restore-3">
+    <div class="layer-close"></div>
+
+    <div class="popup-container">
+        <div class="popup-decor">
+            <img width="60" height="60" src="/img/popup/popup-img-9.svg" alt="" loading="lazy">
+        </div>
+
+        <div class="popup-align">
+            <div class="title h3 text-center">
+                {{t 'popups.RESTORE_PASSWORD_TITLE'}}
+            </div>
+            <div class="text text-center">
+                {{t 'popups.CREATE_NEW_PASSWORD_MESSAGE'}}
+            </div>
+
+            <b id="code_popup_phone" class="clr-black hidden">{{phone}}</b>
+
+            <form id="reset_password_last_form" class="form-block">
+                <div class="input-field input-field__icon-wrap">
+                    <div class="input-placeholder">{{t 'popups.NEW_PASSWORD_PLACEHOLDER'}}</div>
+                    <input class="input reset_password_filed" type="password" required>
+                    <div class="input-field__icon input-field__pass-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+                            <g>
+                                <path fill="currentColor"
+                                    d="m2.62 11.255.715-.71A7.03 7.03 0 0 1 1.535 8C2.55 5.465 5.35 3.5 8 3.5a6.19 6.19 0 0 1 2 .36l.775-.78A7.36 7.36 0 0 0 8 2.5 8.345 8.345 0 0 0 .53 7.83a.5.5 0 0 0 0 .34 8 8 0 0 0 2.09 3.085Z" />
+                                <path fill="currentColor"
+                                    d="M6 7.865a2 2 0 0 1 1.85-1.85l.905-.91A3 3 0 0 0 5.09 8.77L6 7.865ZM15.47 7.83a8.2 8.2 0 0 0-2.87-3.72L15 1.705 14.295 1 1 14.295l.705.705 2.55-2.55A7.645 7.645 0 0 0 8 13.5a8.346 8.346 0 0 0 7.47-5.33.5.5 0 0 0 0-.34ZM10 8a2 2 0 0 1-3 1.72L9.72 7A2 2 0 0 1 10 8Zm-2 4.5a6.524 6.524 0 0 1-3-.79l1.27-1.27a3 3 0 0 0 4.175-4.175L11.88 4.83A7.27 7.27 0 0 1 14.465 8C13.45 10.535 10.65 12.5 8 12.5Z" />
+                            </g>
+                            <g>
+                                <path fill="currentColor"
+                                    d="M15.47 7.83A8.345 8.345 0 0 0 8 2.5 8.345 8.345 0 0 0 .53 7.83a.5.5 0 0 0 0 .34A8.345 8.345 0 0 0 8 13.5a8.346 8.346 0 0 0 7.47-5.33.5.5 0 0 0 0-.34ZM8 12.5c-2.65 0-5.45-1.965-6.465-4.5C2.55 5.465 5.35 3.5 8 3.5s5.45 1.965 6.465 4.5C13.45 10.535 10.65 12.5 8 12.5Z" />
+                                <path fill="currentColor"
+                                    d="M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="input-error">{{t 'popups.FIELD_REQUIRED_ERROR'}}</div>
+                </div>
+                <div class="input-field input-field__icon-wrap">
+                    <div class="input-placeholder">{{t 'popups.CONFIRM_PASSWORD_PLACEHOLDER'}}</div>
+                    <input class="input reset_conf_password_filed" type="password" required>
+                    <div class="input-field__icon input-field__pass-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+                            <g>
+                                <path fill="currentColor"
+                                    d="m2.62 11.255.715-.71A7.03 7.03 0 0 1 1.535 8C2.55 5.465 5.35 3.5 8 3.5a6.19 6.19 0 0 1 2 .36l.775-.78A7.36 7.36 0 0 0 8 2.5 8.345 8.345 0 0 0 .53 7.83a.5.5 0 0 0 0 .34 8 8 0 0 0 2.09 3.085Z" />
+                                <path fill="currentColor"
+                                    d="M6 7.865a2 2 0 0 1 1.85-1.85l.905-.91A3 3 0 0 0 5.09 8.77L6 7.865ZM15.47 7.83a8.2 8.2 0 0 0-2.87-3.72L15 1.705 14.295 1 1 14.295l.705.705 2.55-2.55A7.645 7.645 0 0 0 8 13.5a8.346 8.346 0 0 0 7.47-5.33.5.5 0 0 0 0-.34ZM10 8a2 2 0 0 1-3 1.72L9.72 7A2 2 0 0 1 10 8Zm-2 4.5a6.524 6.524 0 0 1-3-.79l1.27-1.27a3 3 0 0 0 4.175-4.175L11.88 4.83A7.27 7.27 0 0 1 14.465 8C13.45 10.535 10.65 12.5 8 12.5Z" />
+                            </g>
+                            <g>
+                                <path fill="currentColor"
+                                    d="M15.47 7.83A8.345 8.345 0 0 0 8 2.5 8.345 8.345 0 0 0 .53 7.83a.5.5 0 0 0 0 .34A8.345 8.345 0 0 0 8 13.5a8.346 8.346 0 0 0 7.47-5.33.5.5 0 0 0 0-.34ZM8 12.5c-2.65 0-5.45-1.965-6.465-4.5C2.55 5.465 5.35 3.5 8 3.5s5.45 1.965 6.465 4.5C13.45 10.535 10.65 12.5 8 12.5Z" />
+                                <path fill="currentColor"
+                                    d="M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="input-error">{{t 'popups.FIELD_REQUIRED_ERROR'}}</div>
+                </div>
+
+                <!-- to show message remove class "d-none" -->
+                <div class="form-block-message d-none">
+                    {{t 'popups.PASSWORD_MISMATCH_ERROR'}}
+                </div>
+
+                <button type="submit" class="btn btn_secondary btn_block" data-rel="pass-is-changed">
+                    <b>{{t 'popups.CONFIRM_BUTTON'}}</b>
+                </button>
+            </form>
+
+        </div>
+        <button class="btn-close close-popup"></button>
+    </div>
+</div>
+{{/case}}
+
+{{#case "pass-is-changed"}}
+<!-- Password successfully changed ** -->
+<div class="popup-content" data-rel="pass-is-changed">
+    <div class="layer-close"></div>
+
+    <div class="popup-container">
+        <div class="popup-decor">
+            <img width="60" height="60" src="/img/popup/popup-img-10.svg" alt="" loading="lazy">
+        </div>
+
+        <div class="popup-align">
+            <div class="title h3 text-center">
+                {{t 'popups.PASSWORD_CHANGED_TITLE'}}
+            </div>
+            <div class="text text-center">
+                {{t 'popups.PASSWORD_CHANGED_MESSAGE'}}
+            </div>
+
+            <a class="btn btn_secondary btn_block open-popup" data-rel="login">
+                <b>{{t 'popups.LOGIN_BUTTON'}}</b>
+            </a>
+        </div>
+        <button class="btn-close close-popup"></button>
+    </div>
+</div>
+{{/case}}
+
+{{/switch}}

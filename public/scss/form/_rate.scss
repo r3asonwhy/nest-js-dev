@@ -1,0 +1,112 @@
+/*--------------------*/
+/* + Rate select      */
+/*--------------------*/
+.rate {
+    --star-size: var(--text-s);
+    --star-clr: var(--clr-primary);
+    --star-width: 0%;
+    gap: calc(var(--star-size) * 0.25);
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+
+    &-view {
+        font-size: var(--text);
+        line-height: 1.2em;
+        font-weight: 400;
+        color: var(--clr-text);
+        text-decoration-line: underline;
+        text-transform: capitalize;
+    }
+
+    >* {
+        display: inline-block;
+        position: relative;
+        width: var(--star-size);
+        height: var(--star-size);
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+        -webkit-mask-image: url(../img/icons/star-full.svg);
+        mask-image: url(../img/icons/star-full.svg);
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: var(--star-width);
+            background: var(--star-clr);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-image: url(../img/icons/star.svg);
+        }
+    }
+
+    &[style*="1."] i:nth-child(1),
+    &[style*="2."] i:nth-child(-n+2),
+    &[style*="3."] i:nth-child(-n+3),
+    &[style*="4."] i:nth-child(-n+4),
+    &[style*="5."] i:nth-child(-n+5) {
+        --star-width: 100%;
+    }
+
+    &[style*="0."] i:nth-child(1)::before {
+        --star-width: calc(var(--star-rate) * 100%);
+    }
+
+    &[style*="1."] i:nth-child(2)::before {
+        --star-width: calc((var(--star-rate) - 1) * 100%);
+    }
+
+    &[style*="2."] i:nth-child(3)::before {
+        --star-width: calc((var(--star-rate) - 2) * 100%);
+    }
+
+    &[style*="3."] i:nth-child(4)::before {
+        --star-width: calc((var(--star-rate) - 3) * 100%);
+    }
+
+    &[style*="4."] i:nth-child(5)::before {
+        --star-width: calc((var(--star-rate) - 4) * 100%);
+    }
+
+    input {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+        display: inline-block;
+        transition: transform 0.1s;
+
+        &:has(~label input:checked) {
+            --star-width: 100%;
+        }
+
+        &:has(input:checked) {
+            --star-width: 100%;
+
+            &~label::before {
+                --star-width: 0%;
+            }
+        }
+    }
+}
+
+@include minMedia(xl) {
+    .rate label:hover {
+        transform: scale(1.08);
+    }
+}

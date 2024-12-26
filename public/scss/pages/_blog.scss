@@ -1,0 +1,144 @@
+/*--------------------*/
+/* + Blog             */
+/*--------------------*/
+.blog-row {
+  --bs-gutter-x: 0.625rem;
+  --bs-gutter-y: 0.625rem;
+}
+
+.blog-item__image {
+  display: block;
+  padding-bottom: 64%;
+  border-radius: var(--rd-3);
+}
+
+.blog-item {
+  position: relative;
+  height: 100%;
+  padding: var(--sp-xs);
+  border-radius: var(--rd-2);
+  border: rem(1) solid var(--clr-white);
+  box-shadow: var(--box-shadow);
+  transition: border var(--transition-1);
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__date {
+    font-size: var(--text-xs);
+  }
+
+  .title {
+    @include lines(2);
+  }
+
+  >*+* {
+    margin-top: 1rem;
+  }
+}
+
+.feedback-wrap {
+  gap: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.feedback-btn {
+  position: relative;
+  gap: .5rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--clr-text);
+
+  &+&::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -0.75rem;
+    width: rem(1);
+    height: 100%;
+    background-color: var(--clr-grey);
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  b {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+    color: var(--clr-white);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    border-radius: 100%;
+    background-color: var(--clr-primary);
+  }
+}
+
+button.feedback-btn {
+  cursor: pointer;
+}
+
+.blog-item__image.big {
+  padding-bottom: 76%;
+  border-radius: var(--rd-1);
+}
+
+.blog-item__content {
+  gap: var(--sp-xs);
+  display: grid;
+  justify-items: start;
+
+
+  .feedback-btn {
+    gap: 0;
+    color: var(--clr-primary);
+  }
+
+  .feedback-btn b {
+    color: var(--clr-black);
+    font-size: var(--text-xs);
+    background-color: transparent;
+  }
+}
+
+.blog-date {
+  font-size: var(--text-s);
+  color: var(--clr-text);
+}
+
+@include minMedia(xl) {
+  .blog-item:hover {
+    border-color: var(--clr-primary);
+  }
+
+  button.feedback-btn:hover {
+    color: var(--clr-primary);
+  }
+}
+
+@include maxMedia(lg) {
+  .blog-item__content {
+    grid-template-columns: 1fr 1fr;
+
+    >*:not(.feedback-wrap):not(.blog-date) {
+      grid-column: span 2;
+    }
+
+    .blog-date {
+      text-align: right;
+      justify-self: end;
+    }
+
+    .btn {
+      margin-inline: auto;
+    }
+  }
+}

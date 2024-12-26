@@ -1,0 +1,71 @@
+/*--------------------*/
+/* + Call to          */
+/*--------------------*/
+.clt-block {
+    gap: var(--sp-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: max(2.6042vw, 1rem);
+    padding-inline: max(3.125vw, 1rem);
+    border-radius: var(--rd-1);
+    background-color: var(--clr-primary);
+    background-size: 56%;
+    background-position: top right -4%;
+    background-repeat: no-repeat;
+    background-image: url(../img/icons/quotes.svg);
+}
+
+.clt-info {
+    width: 100%;
+    max-width: rem(620);
+
+    >*+* {
+        margin-top: var(--sp-xs);
+    }
+
+    .title {
+        color: var(--clr-white);
+    }
+
+    .text {
+        color: rgba(255, 255, 255, 0.80);
+    }
+}
+
+.clt-from {
+    width: 100%;
+    max-width: rem(620);
+}
+
+.clt-form-inner {
+    padding: 0.25rem;
+    display: flex;
+    align-items: stretch;
+    border-radius: var(--rd-2);
+    background-color: var(--clr-white);
+    border: rem(1) solid var(--clr-border);
+
+    .input-field {
+        --border: var(--clr-white);
+        flex-grow: 1;
+    }
+
+    .btn {
+        height: auto;
+    }
+
+    .focus .input-placeholder,
+    .value .input-placeholder {
+        top: 0.25rem;
+    }
+}
+
+
+@include maxMedia(lg) {
+    .clt-block {
+        flex-direction: column;
+        background-size: 85%;
+        background-position: top right -85%;
+    }
+}

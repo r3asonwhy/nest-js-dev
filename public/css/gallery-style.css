@@ -1,0 +1,40 @@
+/*-----------------*/
+/*  Gallery        */
+/*-----------------*/
+.lightbox-img {cursor: pointer;}
+/*-----------------*/
+/*  lightBox       */
+/*-----------------*/
+.lg-backdrop {background-color: var(--bg-overlay) !important;-webkit-backdrop-filter: blur(var(--blur));backdrop-filter: blur(var(--blur));}
+.lg-outer .lg-toolbar {background-color: rgba(0, 0, 0, 0.5);}
+.lg-outer .lg-toolbar .lg-icon {color: var(--clr-white);}
+.lg-outer .lg-toolbar .lg-icon:not(.lg-close) {display: none;}
+.lg-outer .lg-toolbar #lg-counter {font-size: var(--text);color: var(--clr-white);}
+.lg-outer .lg-actions {--sw-btn: 3.125rem;}
+.lg-outer .lg-actions .lg-next,
+.lg-outer .lg-actions .lg-prev {color: var(--clr-white);padding: 0;background-color: transparent;transition: var(--transition-1);}
+.lg-outer .lg-actions .swiper-button-prev {left: 0;border-color: var(--clr-white);}
+.lg-outer .lg-actions .swiper-button-next {right: 0;border-color: var(--clr-white);transform: rotate(180deg);}
+.lg-outer .lg-thumb {margin: 0 auto;}
+.lg-outer .lg-thumb-outer {background-color: rgba(0, 0, 0, 0.5) !important;box-shadow: none;}
+.lg-outer .lg-toogle-thumb {background-color: rgba(0, 0, 0, 0.5) !important;box-shadow: none;color: var(--clr-white);transition: var(--transition-1);}
+.lg-outer .lg-thumb-item {border-radius: 0 !important;text-align: center;}
+.lg-outer .lg-thumb-item.active,
+.lg-outer .lg-thumb-item:hover {border-color: var(--clr-primary) !important;}
+.lg-outer.lg-pull-caption-up .lg-sub-html {max-width: 80%;margin: 0 auto;color: var(--clr-white);background-color: rgba(var(--rgb-secondary), 1);}
+.lg-sub-html > *:not(:last-child) {margin-bottom: 10px;}
+.lg-sub-html .caption {font-size: var(--text);color: var(--clr-white);}
+.lg-sub-html p {font-size: 0.75rem;color: var(--clr-white);}
+.lg-outer .lg-video-cont {max-width: 100% !important;max-height: 100% !important;width: auto;}
+.lg-outer .lg-video {width: auto;height: auto;padding-bottom: unset !important;overflow: hidden;position: relative;}
+.lg-outer .lg-video > * {max-width: 100%;max-height: 100%;height: auto;width: auto;}
+@media (min-width: 1200px) {
+.lg-outer .lg-toolbar .lg-icon:hover {color: var(--clr-red);}
+.lg-outer .lg-toogle-thumb:hover {color: var(--clr-primary);}
+.lg-outer .lg-actions .lg-next:hover,
+.lg-outer .lg-actions .lg-prev:hover {color: var(--clr-primary);}
+}
+@media (max-width: 575px) {
+.lg-outer .lg-actions .lg-next,
+.lg-outer .lg-actions .lg-prev {display: none;}
+}

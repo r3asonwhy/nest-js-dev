@@ -1,0 +1,73 @@
+/*--------------------*/
+/* + COLOR SELECTOR   */
+/*--------------------*/
+.color-selector {
+    --size: 2.125rem;
+    gap: calc(var(--sp-xs) * 0.875);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    input {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        width: var(--size);
+        height: var(--size);
+        display: block;
+        border-radius: var(--rd-3);
+        border: rem(1) solid var(--clr-border);
+        background: var(--color);
+        transition: var(--transition-1);
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            top: 50%;
+            width: 25%;
+            height: 40%;
+            opacity: 0;
+            border-right: rem(2) solid var(--clr-white);
+            border-bottom: rem(2) solid var(--clr-white);
+            transform: translate(-50%, -60%) rotate(45deg);
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+
+            &::before {
+                opacity: 1;
+                width: 130%;
+                height: rem(2);
+                border: none;
+                background: var(--clr-border);
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+        }
+
+        &:checked {
+            border-color: var(--clr-primary);
+
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        &[style="--color:#FFFFFF"],
+        &[style="--color:#ffffff"],
+        &[style="--color:#FFF"],
+        &[style="--color:#fff"] {
+            &::before {
+                border-color: var(--clr-black);
+            }
+        }
+    }
+}
+
+@include minMedia(xl) {
+    .color-selector input:not(:checked, :disabled):hover {
+        opacity: 0.6;
+    }
+}

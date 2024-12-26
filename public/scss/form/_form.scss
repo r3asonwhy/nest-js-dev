@@ -1,0 +1,28 @@
+/*--------------------*/
+/* + Form Block       */
+/*--------------------*/
+.form-block {
+  --space: var(--sp-sm);
+
+  .row {
+    --bs-gutter-x: var(--space);
+    --bs-gutter-y: var(--space);
+  }
+
+  >* {
+    margin-bottom: var(--space);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.form-block-message {
+  pointer-events: none;
+  font-size: calc(var(--int-fs) * 0.875);
+  font-weight: 400;
+  line-height: 1.21;
+  text-align: center;
+  color: var(--clr-red);
+}

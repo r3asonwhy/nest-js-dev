@@ -1,0 +1,54 @@
+/*--------------------*/
+/* + Checkout grid    */
+/*--------------------*/
+.checkout {
+    gap: var(--sp-lg);
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    &.empty {
+
+        .checkout__left,
+        .checkout__right {
+            display: none;
+        }
+
+        .checkout__empty {
+            display: flex;
+        }
+    }
+}
+
+.checkout__right {
+    width: rem(528);
+}
+
+.checkout__empty {
+    margin-top: var(--sp-xl);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-xs);
+    grid-column: -1 / 1;
+    text-align: center;
+}
+
+@include maxMedia(xl) {
+    .checkout {
+        gap: var(--sp-sm);
+    }
+
+    .checkout__right {
+        width: rem(480);
+    }
+}
+
+@include maxMedia(lg) {
+    .checkout {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout__right {
+        width: 100%;
+    }
+}

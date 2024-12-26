@@ -1,0 +1,32 @@
+/*--------------------*/
+/* + Cart informer    */
+/*--------------------*/
+.cart-informer {
+    position: absolute;
+    right: calc(var(--bs-gutter-x) / 2);
+    top: calc(100% + var(--sp-2xs));
+    background: var(--bg);
+    padding: var(--sp-sm);
+    width: rem(440);
+    max-width: calc(100% - var(--bs-gutter-x));
+    gap: var(--sp-2xs);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--rd-1);
+    box-shadow: var(--box-shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: var(--transition-1);
+
+    .clr-black {
+        color: var(--clr-black);
+    }
+
+    &.active,
+    &:hover {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}

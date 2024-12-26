@@ -1,0 +1,81 @@
+/*--------------------*/
+/* + BANNER           */
+/*--------------------*/
+.banner {
+  position: relative;
+
+  &-media {
+    position: absolute;
+    overflow: hidden;
+    z-index: 0;
+    inset: 0;
+    border-radius: var(--rd-1);
+
+    img,
+    video {
+      z-index: 0;
+      @include objectFit;
+    }
+  }
+
+  &-align {
+    position: relative;
+    z-index: 1;
+    display: table-cell;
+    vertical-align: bottom;
+    width: 10000px;
+    height: auto;
+  }
+}
+
+@include minMedia(md) {
+  .banner {
+    --clr-title: var(--clr-white);
+    --clr-text: var(--clr-border);
+
+    &-media {
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &-align {
+      padding-block: max(1rem, 3vw);
+      height: clamp(22.5rem, calc(7.76rem + 30.7vw), 40rem);
+    }
+
+    &-info {
+      padding-inline: 1rem;
+      margin-inline: auto;
+
+      >*+* {
+        margin-top: 0.75rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .section:has(.banner)+.section {
+    margin-top: var(--sp-md);
+  }
+
+  .banner-media {
+    position: relative;
+    padding-top: 57%;
+  }
+
+  .banner .banner-info {
+    margin-top: var(--sp-md);
+  }
+
+  .banner-info {
+    >*+* {
+      margin-top: 0.75rem;
+    }
+  }
+}

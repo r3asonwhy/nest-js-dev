@@ -1,0 +1,46 @@
+/*--------------------*/
+/* + 404              */
+/*--------------------*/
+.page-404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - var(--h-height));
+  margin: 0 !important;
+  padding: 30px 0;
+}
+
+.page-404-inner {
+  width: 100%;
+  max-width: rem(584);
+  margin-inline: auto;
+
+  .text {
+    margin-top: var(--sp-xs);
+  }
+
+  .btn {
+    margin-top: var(--sp-sm);
+  }
+}
+
+.page-404-img {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: rem(584);
+  margin-inline: auto;
+
+  img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+}
+
+@include maxMedia(lg) {
+  .page-404-inner {
+    text-align: center;
+  }
+}

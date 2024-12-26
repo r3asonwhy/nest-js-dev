@@ -1,0 +1,14 @@
+{{#if isProperyDetail}}
+  <script src='/js/app-mortgage.js' defer=''></script>
+{{/if}}
+{{#if isCreateProperty}}
+  <script
+    defer
+    src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDcCOovlbUVc1JE8AxkVGbQ_ys0C82o9ig&libraries=geometry,places&v=3&language=en&callback=Function.prototype'
+  >
+  </script>
+  <script defer src='/js/vendors/infobox.js'></script>
+  <script defer src='/js/app-map-google.js'></script>
+  <script defer src='/js/app-location-autocomplete.js'></script>
+  <script defer src='/js/create-edit-form-scripts.js'></script>
+{{/if}}

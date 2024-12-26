@@ -1,0 +1,75 @@
+.title {
+    color: var(--clr-title);
+    font-weight: 600;
+}
+
+a.title,
+a .title {
+    transition: color var(--transition-1);
+}
+
+.title-wrap {
+    gap: var(--sp-md);
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--sp-sm);
+
+    .swiper-controls {
+        margin-left: auto;
+    }
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-600 {
+    font-weight: 700;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.clr-white {
+    color: var(--clr-white);
+}
+
+.clr-black {
+    color: var(--clr-black);
+}
+
+.clr-primary {
+    color: var(--clr-primary);
+}
+
+.clr-green {
+    color: var(--clr-green);
+}
+
+@include minMedia(xl) {
+
+    a.title:hover,
+    a .title:hover {
+        color: var(--clr-primary);
+    }
+}
+
+@include maxMedia(xl) {
+    .title-wrap {
+        gap: var(--sp-sm);
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,63 @@
+/*--------------------*/
+/* + Tags             */
+/*--------------------*/
+.tags-block {
+    --tags-height: calc((2.5rem * 3) + (0.625rem *2));
+    --inActive-height: var(--tags-height);
+    text-align: center;
+
+    .toggle-btn {
+        margin-top: var(--sp-md);
+    }
+}
+
+.tags-wrap {
+    font-size: var(--text-s);
+    line-height: 1em;
+    color: var(--clr-black);
+    gap: 0.625rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        flex-shrink: 0;
+
+        >* {
+            font-size: inherit;
+            line-height: inherit;
+            height: 2.5rem;
+            padding: 0 1.25em;
+            display: flex;
+            align-items: center;
+            border-radius: var(--rd-2);
+            border: rem(1) solid var(--clr-border);
+        }
+    }
+}
+
+@include minMedia(xl) {
+    .tags-wrap {
+        a:hover {
+            color: var(--clr-primary);
+            border-color: var(--clr-primary);
+        }
+    }
+}
+
+@include maxMedia(lg) {
+    .tags-block {
+        --tags-height: calc((2rem * 5) + (0.25rem * 4));
+    }
+
+    .tags-wrap {
+        font-size: 0.75rem;
+        gap: 0.25rem;
+
+        li {
+            >* {
+                height: 2rem;
+                padding: 0 1em;
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+{
+  "auth": {
+    "USER_CREATION_ERROR": "Ім'я користувача та пароль є обов'язковими!",
+    "PASSWORD_REQUIREMENTS": "Пароль повинен містити не менше 8 символів, включати хоча б одну літеру, одну цифру та один спеціальний символ",
+    "INVALID_PASSWORD_FORMAT": "Невірний формат пароля",
+    "PASSWORD_STRENGTH_ERROR": "Пароль повинен включати щонайменше одну велику літеру, одну малу літеру, одну цифру та один спеціальний символ",
+    "EMAIL_FORMAT_ERROR": "Невірний формат електронної пошти!",
+    "PHONE_FORMAT_ERROR": "Невірний формат телефонного номера",
+    "PASSWORD_MISMATCH": "Паролі не співпадають",
+    "FAILED_CONFIRM_COGNITO": "Не вдалося підтвердити користувача в Cognito",
+    "EMAIL_NOT_VERIFIED": "Електронна пошта не підтверджена",
+    "INVALID_CREDENTIALS": "Невірний телефон або пароль",
+    "CODE_EXPIRED": "Код закінчив термін дії",
+    "INVALID_TOKEN_TYPE": "Невірний тип токена",
+    "NO_ACCESS_TOKEN": "Відсутній access token",
+    "ERROR_REFRESHING_TOKENS": "Помилка при оновленні токенів",
+    "EMAIL_ALREADY_VERIFIED": "Електронна пошта вже підтверджена",
+    "INVALID_TOKEN": "Недійсний токен",
+    "NO_JWT_FOUND": "У файлах cookie не знайдено JWT",
+    "INVALID_OR_EXPIRED_TOKEN": "Токен недійсний або закінчився",
+    "LOGOUT_FAILED": "Не вдалося вийти з системи. Будь ласка, спробуйте пізніше",
+    "INVALID_PASSWORD_POLICY": "Пароль повинен містити щонайменше 12 символів, включаючи одну велику літеру, одну малу літеру, одну цифру та один спеціальний символ",
+    "UNKNOWN_ERROR": "Сталася невідома помилка. Будь ласка, спробуйте ще раз пізніше або зверніться до служби підтримки",
+    "INVALID_DEVICE_OR_TOKEN": "Неправильний пристрій або токен. Спробуйте ще раз",
+    "COGNITO_ERROR": "Сталася помилка під час взаємодії з Cognito: {error}",
+    "TOKEN_EXPIRED": "Час вашої сесії вичерпано. Будь ласка, увійдіть знову",
+    "PASSWORD_TOO_SHORT": "Пароль має бути не менше 12 символів",
+    "PASSWORD_TOO_LONG": "Пароль не повинен перевищувати 99 символів"
+  },
+  "user": {
+    "USER_NOT_FOUND": "Користувача не знайдено",
+    "REQUIRED_FIELD_EMPTY_ERROR": "Обов'язкове поле {property} порожнє!",
+    "DELETE_COGNITO_FAILED": "Не вдалося видалити користувача з Cognito",
+    "USER_ROLE_NOT_FOUND": "Роль користувача не знайдено",
+    "NO_PERMISSION": "У вас немає дозволу на доступ до цього ресурсу",
+    "EMAIL_EXISTS": "Користувач з такою електронною поштою вже існує",
+    "EMAIL_EXISTS_SHORT": "електронною поштою вже існує",
+    "PHONE_EXISTS": "Користувач з таким номером телефону вже існує",
+    "PHONE_EXISTS_SHORT": "номером телефону вже існує",
+    "FAILED_TO_UPDATE_PASSWORD": "Не вдалося оновити пароль у Cognito",
+    "FAILED_TO_UPDATE_USER_ATTRIBUTES": "Не вдалося оновити атрибути користувача у Cognito",
+    "USER_UPDATE_FAILED": "Не вдалося оновити дані користувача",
+    "USER_DELETE_FAILED": "Не вдалося видалити користувача",
+    "INVALID_STATUS": "Наданий статус є недійсним",
+    "INVALID_ROLE": "Надана роль є недійсною",
+    "VALIDATION_ERROR": "Помилка валідації",
+    "FIRST_NAME_REQUIRED": "Ім'я обов'язкове",
+    "LAST_NAME_REQUIRED": "Прізвище обов'язкове",
+    "INVALID_EMAIL_FORMAT": "Недійсний формат електронної пошти",
+    "INVALID_PHONE_FORMAT": "Недійсний формат телефону",
+    "MUST_ACCEPT_PRIVACY_POLICY": "Ви повинні прийняти політику конфіденційності",
+    "INVALID_CODE": "Недійсний код"
+  },
+  "token": {
+    "TOKEN_DELETE_FAILED": "Не вдалося видалити маркери з бази даних",
+    "TOKEN_SAVE_FAILED": "Не вдалося зберегти токен до бази даних",
+    "TOKEN_FETCH_FAILED": "Не вдалося отримати токен з бази даних",
+    "TOKEN_UPDATE_FAILED": "Не вдалося оновити токени в базі даних",
+    "TOKEN_NOT_FOUND": "Токен для користувача з user_id: {user_id} не знайдено",
+    "INVALID_AMOUNT": "Кількість повинна бути позитивним числом. Отримано: {amount}",
+    "INVALID_UNIT": "Неприпустима одиниця '{unit}'. Дозволені одиниці: {validUnits}"
+  },
+  "mail": {
+    "MISSING_CONFIG": "Конфігурація SMTP відсутня. Установіть SMTP_HOST, SMTP_PORT, SMTP_USER і GOOGLE_GEN_PASSWORD",
+    "SENDING_EMAIL": "Відправка електронного листа на {to} з темою \"{subject}\"",
+    "EMAIL_SEND_ERROR": "Помилка відправки електронного листа на {to}: {error}"
+  },
+  "sms": {
+    "SEND_SMS_FAILED": "Не вдалося надіслати SMS. Спробуйте ще раз пізніше"
+  },
+  "template": {
+    "TEMPLATE_NOT_FOUND": "Шаблон '{templateName}' не знайдено за шляхом '{templatePath}'",
+    "TEMPLATE_DATA_NOT_DEFINED": "Дані шаблону не визначені для '{templateKey}'"
+  },
+  "config": {
+    "NOT_INITIALIZED": "Сервіс конфігурації додатку не був ініціалізований",
+    "CONFIG_KEY_NOT_EXIST": "Ключ конфігурації не існує"
+  },
+  "layout": {
+    "HEADER_FOOTER_NOT_FOUND": "Налаштування Header/Footer не знайдено для мови: {{lang}}",
+    "MENU_VALUE_REQUIRED": "Меню обов'язкове для заповнення",
+    "MENU_NOT_FOUND": "Налаштування меню не знайдено для мови: {{lang}}"
+  },
+  "page": {
+    "SECTIONS_REQUIRED": "Секції є обов'язковими",
+    "TEMPLATE_REQUIRED": "Шаблон є обов'язковим",
+    "PAGE_NOT_FOUND": "Сторінку не знайдено",
+    "SECTION_FIELDS_REQUIRED": "Кожна секція повинна мати тип і зміст",
+    "ERROR_CODE_REQUIRED": "Потрібно ввести код помилки",
+    "INVALID_ERROR_CODE": "Надано недійсний код помилки"
+  }
+}

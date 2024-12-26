@@ -1,0 +1,1017 @@
+<div class="popup-wrapper" id="popups">
+  <div class="bg-layer"></div>
+  <!-- payment-success popup  -->
+  {{#if isForm}}
+  <!-- congras form popup -->
+  <div class="popup-content" data-rel="congrats-form">
+    <div class="layer-close"></div>
+    <div class="popup-container">
+      <div class="popup-align default-popup">
+        <div class="default-popup__image">
+          <img src="{{{imagePath getForm.popup_image null}}}" alt="" loading="lazy">
+        </div>
+        <div class="default-popup__title">
+          <div class="title h4">
+            <span id="congras_popup_title">{{getForm.popup_text}}</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn-close close-popup"></button>
+    </div>
+  </div>
+  {{/if}}
+
+  {{#if isProperyDetail}}
+  <!-- ask-owner popup  -->
+  <div class="popup-content" data-rel="ask-owner">
+    <div class="layer-close"></div>
+    <div class="popup-container size-2">
+      <form class="popup-align default-popup ">
+        <div class="default-popup__image">
+          <img src="/img/icons/popup/question.svg" alt="" loading="lazy">
+        </div>
+        <div class="default-popup__title">
+          <div class="title h4">
+            Ask Owner
+          </div>
+        </div>
+        <div class="default-popup__content">
+          <div class="form-error">
+            <img src="/img/icons/attention.svg" alt="" loading="lazy"><span>Attention! All questions with answers will
+              be posted publicly</span>
+          </div>
+          <div class="text text_theme_grey">
+            <ul>
+              <li>Questions must be property related only</li>
+              <li>Personal questions are not permitted</li>
+              <li>Limited to English language only</li>
+            </ul>
+          </div>
+        </div>
+        <div class="default-popup__content">
+          <div class="form-block">
+            <div class="row">
+              <div class="col-12">
+                <div class="input-field">
+                  <div class="input-label">Question</div>
+                  <div class="input-field__textarea-wrap">
+                    <textarea class="input" name="question" rows="7" placeholder="Submit question"></textarea>
+                    <div class="input-error">Please fill in this field</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="default-popup__buttons">
+          <button class="btn btn_secondary close-popup" type="button"><span>Cancel</span></button>
+          <button data-id="{{property.id}}" id="ask_owner_submit" class="btn btn_primary"><span>Send</span></button>
+        </div>
+      </form>
+      <button class="btn-close close-popup"></button>
+    </div>
+  </div>
+  {{/if}}
+
+  {{#if withFilters}}
+  <!-- homepage filter popup  -->
+  <div class="popup-content filter-popup-content" data-rel="filters">
+    <div class="layer-close"></div>
+    <div class="popup-container size-2">
+      <div class="popup-align filter-popup">
+        <div class="filter-popup__body">
+          <div class="filter-popup__title title h4">
+            Filters
+          </div>
+          <div class="tabs">
+            <div class="tab-nav filter-popup__tab-nav">
+              {{#if isHomePage}}
+              <label class="check-btn ch-box">
+                <input type="radio" name="filter-tab" value="0" checked>
+                <span>Buy property</span>
+              </label>
+              <label class="check-btn ch-box">
+                <input type="radio" name="filter-tab" value="1">
+                <span>Rent property</span>
+              </label>
+              {{else}}
+              <label class="check-btn ch-box">
+                <input type="radio" name="filter-tab" value="0" {{#if queryFilters.type}} checked {{/if}}>
+                <span>Buy property</span>
+              </label>
+              <label class="check-btn ch-box">
+                <input type="radio" name="filter-tab" value="1" {{#if queryRentFilters.type}} checked {{/if}}>
+                <span>Rent property</span>
+              </label>
+              {{/if}}
+            </div>
+            <div class="tabs-wrap filter-popup-tabs">
+              <div class="tab" {{#if queryRentFilters.type}} style="display:none" {{/if}}>
+                <form class="filter-popup__form form-block" id="buy_tab_filters">
+                  <div class="row">
+                    {{#if allCities}}
+                    <div class="col-12">
+                      <div class="input-field">
+                        <div class="input-label">
+                          Location
+                        </div>
+                        {{#if queryFilters.city}}
+                        <select data-options='{"showSearch":true, "closeOnSelect":false}' placeholder="Location"
+                          multiple class="checkbox-select" name="location">
+                          <option data-placeholder="true"></option>
+                          {{#each allCities}}
+                          <option data-name="d" data-id="{{id}}" {{#ifCond ../queryFilters.city 'includes'
+                            id}}selected="{{name}}" {{/ifCond}}
+                            data-html='<span class="ss-check"></span><span>{{name}}</span>'>
+                            {{name}}
+                          </option>
+                          {{/each}}
+                        </select>
+                        {{else}}
+                        <select data-options='{"showSearch":true, "closeOnSelect":false}' placeholder="Location"
+                          multiple class="checkbox-select" name="location">
+                          <option data-placeholder="true"></option>
+                          {{#each allCities}}
+                          <option data-id="{{id}}" {{#ifCond ../cityLocation 'includes' id}} selected="{{name}}"
+                            {{/ifCond}} data-html='<span class="ss-check"></span><span>{{name}}</span>'>{{name}}
+                          </option>
+                          {{/each}}
+                        </select>
+                        {{/if}}
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="input-field">
+                        <div class="input-label">
+                          Exclude location
+                        </div>
+                        <select data-options='{"showSearch":true, "closeOnSelect":false}' placeholder="Location"
+                          multiple class="checkbox-select" name="exclude-location">
+                          <option data-placeholder="true"></option>
+                          {{#each allCities}}
+                          <option data-id="{{id}}" {{#ifCond ../queryFilters.excluded_city 'includes'
+                            id}}selected="{{name}}" {{/ifCond}}
+                            data-html='<span class="ss-check"></span><span>{{name}}</span>'>
+                            {{name}}
+                          </option>
+                          {{/each}}
+                        </select>
+                      </div>
+                    </div>
+                    {{/if}}
+                    {{#if propertyTypes.buy}}
+                    <div class="col-12">
+                      <div class="input-label">
+                        Property type
+                      </div>
+                      <div class="ch-box-wrap prop-type-checks ch-box-wrap_gap-small">
+                        {{#each propertyTypes.buy}}
+                        <label class="check-btn ch-box">
+                          <input data-id="{{id}}" {{#ifCond ../queryFilters.property_type_id 'includes' id}}checked
+                            {{/ifCond}} type="radio" name="property-type" value="{{name}}">
+                          <span class="check-btn__icon-label">
+                            <span>
+                              <img src="{{{imagePath image null 0}}}" class="property-svg-light" alt="property type img"
+                                loading="lazy">
+                            </span>
+                            <span>{{name}}</span>
+                          </span>
+                        </label>
+                        {{/each}}
+                      </div>
+                    </div>
+                    {{/if}}
+                    <div class="col-12 col-md-6">
+                      <div class="input-range">
+                        <div class="input-range__label">
+                          <div class="input-label">Price</div>
+                          <div class="input-range__settings">
+                            AED
+                          </div>
+                        </div>
+                        <div class="input-range__fields">
+                          <div class="input-field">
+                            <input class="input sort-digits-input-mask" name="price-from" type="text"
+                              inputmode="numeric" placeholder="From" {{#if
+                              queryFilters.price_from}}value="{{queryFilters.price_from}}" {{/if}}>
+                          </div>
+                          <span>-</span>
+                          <div class="input-field">
+                            <input class="input sort-digits-input-mask" name="price-to" type="text" inputmode="numeric"
+                              placeholder="To" {{#if queryFilters.price_to}}value="{{queryFilters.price_to}}" {{/if}}>
+                          </div>
+                        </div>
+                        <div class="input-range__slider">
+                          <input type="text" name="area" class="input-range__slider-input"
+                            data-options='{"min":200000, "max":10000000, "step":200000}' />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="input-range">
+                        <div class="input-range__label">
+                          <div class="input-label">Area / Size</div>
+                          <div class="input-range__settings">
+                            <div class="ch-box-wrap">
+                              {{#ifCond queryFilters.area_unit "==" "1"}}
+                              <label class="ch-box">
+                                <input type="radio" name="area-unit" value="1" checked>
+                                <span>Sq. Ft</span>
+                              </label>
+                              <label class="ch-box">
+                                <input type="radio" name="area-unit" value="0.09290304">
+                                <span>m <sup>2</sup></span>
+                              </label>
+                              {{else}}
+                              <label class="ch-box">
+                                <input type="radio" name="area-unit" value="1">
+                                <span>Sq. Ft</span>
+                              </label>
+                              <label class="ch-box">
+                                <input type="radio" name="area-unit" value="0.09290304" checked>
+                                <span>m <sup>2</sup></span>
+                              </label>
+                              {{/ifCond}}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="input-range__fields">
+                          <div class="input-field">
+                            <input class="input sort-digits-input-mask" name="area-from" type="text" inputmode="numeric"
+                              placeholder="From" {{#if queryFilters.area_from}}value="{{queryFilters.area_from}}"
+                              {{/if}}>
+                          </div>
+                          <span>-</span>
+                          <div class="input-field">
+                            <input class="input sort-digits-input-mask" name="area-to" type="text" inputmode="numeric"
+                              placeholder="To" {{#if queryFilters.area_to}}value="{{queryFilters.area_to}}" {{/if}}>
+                          </div>
+                        </div>
+                        <div class="input-range__slider">
+                          <input type="text" name="area" class="input-range__slider-input"
+                            data-options='{"min":700, "max":35000, "step":700}' />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 " data-disabled="land" data-val="Townhouses, Villas, Apartments, Comercial">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="input-label">Bedrooms</div>
+                          <div class="ch-box-wrap ch-box-wrap_gap-small">
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" {{#ifCond queryFilters.bedroom_number 'includes' "Studio"
+                                }}checked{{/ifCond}} name="bedrooms" value="Studio">
+                              <span>Studio</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="bedrooms" value="1" {{#ifCond
+                                queryFilters.bedroom_number 'includes' "1" }}checked{{/ifCond}}>
+                              <span>1</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="bedrooms" value="2" {{#ifCond
+                                queryFilters.bedroom_number 'includes' "2" }}checked{{/ifCond}}>
+                              <span>2</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="bedrooms" value="3" {{#ifCond
+                                queryFilters.bedroom_number 'includes' "3" }}checked{{/ifCond}}>
+                              <span>3</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="bedrooms" value="4" {{#ifCond
+                                queryFilters.bedroom_number 'includes' "4" }}checked{{/ifCond}}>
+                              <span>4</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="bedrooms" value="5" {{#ifCond
+                                queryFilters.bedroom_number 'includes' "5" }}checked{{/ifCond}}>
+                              <span>5</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="bedrooms" value="6" {{#ifCond
+                                queryFilters.bedroom_number 'includes' "6" }}checked{{/ifCond}}>
+                              <span>6</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="bedrooms" value="7+" {{#ifCond
+                                queryFilters.bedroom_number 'includes' "7+" }}checked{{/ifCond}}>
+                              <span>7+</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="input-label">Bathrooms</div>
+                          <div class="ch-box-wrap ch-box-wrap_gap-small">
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="rooms" value="1" {{#ifCond
+                                queryFilters.bathroom_number 'includes' "1" }}checked{{/ifCond}}>
+                              <span>1</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="rooms" value="2" {{#ifCond
+                                queryFilters.bathroom_number 'includes' "2" }}checked{{/ifCond}}>
+                              <span>2</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="rooms" value="3" {{#ifCond
+                                queryFilters.bathroom_number 'includes' "3" }}checked{{/ifCond}}>
+                              <span>3</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="rooms" value="4" {{#ifCond
+                                queryFilters.bathroom_number 'includes' "4" }}checked{{/ifCond}}>
+                              <span>4</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="rooms" value="5" {{#ifCond
+                                queryFilters.bathroom_number 'includes' "5" }}checked{{/ifCond}}>
+                              <span>5</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="rooms" value="6" {{#ifCond
+                                queryFilters.bathroom_number 'includes' "6" }}checked{{/ifCond}}>
+                              <span>6</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="checkbox" name="rooms" value="7+" {{#ifCond
+                                queryFilters.bathroom_number 'includes' "7+" }}checked{{/ifCond}}>
+                              <span>7+</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="input-label">
+                            Completion status <span class="info-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 21" width="20" height="21"
+                                fill="none">
+                                <path stroke="#949494" stroke-linecap="round" stroke-width="1.5"
+                                  d="M10 18.833a8.333 8.333 0 1 0 0-16.667 8.333 8.333 0 0 0 0 16.667ZM10.008 13.834V10.5M10.008 7.167h-.009" />
+                              </svg>
+                              <span class="info-icon__text">
+                                Using the combination of upper and lower case letter, numbers and symbols.
+                              </span>
+                            </span>
+                          </div>
+                          <div class="ch-box-wrap ch-box-wrap_gap-small">
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="completion-status" value="3" {{#ifCond
+                                queryFilters.completion "==" "3" }}checked{{/ifCond}}>
+                              <span>Any</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="completion-status" value="1" {{#ifCond
+                                queryFilters.completion "==" "1" }}checked{{/ifCond}}>
+                              <span>Ready</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="completion-status" value="2" {{#ifCond
+                                queryFilters.completion "==" "2" }}checked{{/ifCond}}>
+                              <span>Off plan</span>
+                            </label>
+
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="input-label">Maid room</div>
+                          <div class="ch-box-wrap ch-box-wrap_gap-small">
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="maid-room" value="3" {{#ifCond queryFilters.maid_room "==" "3"
+                                }}checked{{/ifCond}}>
+                              <span>Any</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="maid-room" value="1" {{#ifCond queryFilters.maid_room "==" "1"
+                                }}checked{{/ifCond}}>
+                              <span>No</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="maid-room" value="2" {{#ifCond queryFilters.maid_room "==" "2"
+                                }}checked{{/ifCond}}>
+                              <span>Yes</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="input-label">Furnished</div>
+                          <div class="ch-box-wrap ch-box-wrap_gap-small">
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="furnished" value="3" {{#ifCond queryFilters.furnished "==" "3"
+                                }}checked{{/ifCond}}>
+                              <span>Any</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="furnished" value="1" {{#ifCond queryFilters.furnished "==" "1"
+                                }}checked{{/ifCond}}>
+                              <span>No</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="furnished" value="2" {{#ifCond queryFilters.furnished "==" "2"
+                                }}checked{{/ifCond}}>
+                              <span>Yes</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="row row_y-gutter-xs">
+                            <div class="col-12 form-additional-content-control">
+                              <div class="input-label">Rented</div>
+                              <div class="ch-box-wrap ch-box-wrap_gap-small">
+                                <label class="check-btn ch-box">
+                                  <input type="radio" name="Rented" value="3" {{#ifCond queryFilters.rented "==" "3"
+                                    }}checked{{/ifCond}}>
+                                  <span>Any</span>
+                                </label>
+                                <label class="check-btn ch-box">
+                                  <input type="radio" name="Rented" value="1" {{#ifCond queryFilters.rented "==" "1"
+                                    }}checked{{/ifCond}}>
+                                  <span>No</span>
+                                </label>
+                                <label class="check-btn ch-box">
+                                  <input type="radio" name="Rented" value="2" {{#ifCond queryFilters.rented "==" "2"
+                                    }}checked{{/ifCond}}>
+                                  <span>Yes</span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-12 form-additional-content" data-name="Rented" data-val="2">
+                              <div class="input-field">
+                                <div class="input-label">Rented to
+                                  <span class="info-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 21" width="20" height="21"
+                                      fill="none">
+                                      <path stroke="#949494" stroke-linecap="round" stroke-width="1.5"
+                                        d="M10 18.833a8.333 8.333 0 1 0 0-16.667 8.333 8.333 0 0 0 0 16.667ZM10.008 13.834V10.5M10.008 7.167h-.009" />
+                                    </svg>
+                                    <span class="info-icon__text">
+                                      Using the combination of upper and lower case letter, numbers and symbols.
+                                    </span>
+                                  </span>
+                                </div>
+                                <div class="calendar-wrapper">
+                                  <input class="input calendar" type="text" placeholder="Date">
+                                  <img src="/img/icons/date.svg" class="" alt="date" loading="lazy">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="input-label">Ownership</div>
+                          <div class="ch-box-wrap ch-box-wrap_gap-small">
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="Ownership" value="3" {{#ifCond queryFilters.ownership "==" "3"
+                                }}checked{{/ifCond}}>
+                              <span>Any</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="Ownership" value="1" {{#ifCond queryFilters.ownership "==" "1"
+                                }}checked{{/ifCond}}>
+                              <span>Freehold</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="Ownership" value="2" {{#ifCond queryFilters.ownership "==" "2"
+                                }}checked{{/ifCond}}>
+                              <span>Lease hold</span>
+                            </label>
+                          </div>
+                        </div>
+                        {{#if propertyAmenities.show}}
+                        <div class="col-12">
+                          <div class="input-label">Amenities</div>
+                          <div class="more-text-wrap" data-read-more="Show more" data-read-less="Show less">
+                            <div class="ch-box-wrap ch-box-grid ch-box-grid_3">
+                              {{#each propertyAmenities.show}}
+                              <label class="check-btn ch-box">
+                                <input data-id="{{id}}" {{#ifCond ../queryFilters.amenities 'includes'
+                                  id}}checked{{/ifCond}} type="checkbox" value="{{name}}" name="Amenities">
+                                <span>{{name}}</span>
+                              </label>
+                              {{/each}}
+                            </div>
+                            {{#if propertyAmenities.hide}}
+                            <div class="more-content">
+                              <div class="ch-box-wrap ch-box-grid ch-box-grid_3">
+                                {{#each propertyAmenities.hide}}
+                                <label class="check-btn ch-box">
+                                  <input data-id="{{id}}" {{#ifCond ../queryFilters.amenities 'includes'
+                                    id}}checked{{/ifCond}} type="checkbox" value="{{name}}" name="Amenities">
+                                  <span>{{name}}</span>
+                                </label>
+                                {{/each}}
+                              </div>
+                            </div>
+                            <div class="more-text"><span>Show more</span><i></i></div>
+                            {{/if}}
+                          </div>
+                        </div>
+                        {{/if}}
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="tab" {{#ifCond queryFilters.type "||" isHomePage}} style="display:none" {{/ifCond}}>
+                <form class="filter-popup__form form-block" id="rent_tab_filters">
+                  <div class="row">
+                    {{#if allCities}}
+                    <div class="col-12">
+                      <div class="input-field">
+                        <div class="input-label">
+                          Location
+                        </div>
+                        {{#if queryRentFilters}}
+                        <select data-options='{"showSearch":true, "closeOnSelect":false}' placeholder="Location"
+                          multiple class="checkbox-select" name="location">
+                          <option data-placeholder="true"></option>
+                          {{#each allCities}}
+                          <option data-id="{{id}}" {{#ifCond ../queryRentFilters.city 'includes' id}}selected="{{name}}"
+                            {{/ifCond}} data-html='<span class="ss-check"></span><span>{{name}}</span>'>
+                            {{name}}
+                          </option>
+                          {{/each}}
+                        </select>
+                        {{else}}
+                        <select data-options='{"showSearch":true, "closeOnSelect":false}' placeholder="Location"
+                          multiple class="checkbox-select" name="location">
+                          <option data-placeholder="true"></option>
+                          {{#each allCities}}
+                          <option data-id="{{id}}" {{#ifCond ../cityLocation 'includes' id}} selected="{{name}}"
+                            {{/ifCond}} data-html='<span class="ss-check"></span><span>{{name}}</span>'>{{name}}
+                          </option>
+                          {{/each}}
+                        </select>
+                        {{/if}}
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="input-field">
+                        <div class="input-label">
+                          Exclude location
+                        </div>
+                        <select data-options='{"showSearch":true, "closeOnSelect":false}' placeholder="Location"
+                          multiple class="checkbox-select" name="exclude-location">
+                          <option data-placeholder="true"></option>
+                          {{#each allCities}}
+                          <option data-id="{{id}}" {{#ifCond ../queryRentFilters.excluded_city 'includes'
+                            id}}selected="{{name}}" {{/ifCond}}
+                            data-html='<span class="ss-check"></span><span>{{name}}</span>'>
+                            {{name}}
+                          </option>
+                          {{/each}}
+                        </select>
+                      </div>
+                    </div>
+                    {{/if}}
+                    {{#if propertyTypes.rent}}
+                    <div class="col-12">
+                      <div class="input-label">
+                        Property type
+                      </div>
+                      <div class="ch-box-wrap prop-type-checks ch-box-wrap_gap-small">
+                        {{#each propertyTypes.rent}}
+                        <label class="check-btn ch-box">
+                          <input data-id="{{id}}" {{#ifCond ../queryRentFilters.property_type_id 'includes' id}}checked
+                            {{/ifCond}} type="radio" name="property-type" value="{{name}}">
+                          <span class="check-btn__icon-label">
+                            <span>
+                              <img src="{{{imagePath image null 0}}}" class="property-svg-light" alt="property type img"
+                                loading="lazy">
+                            </span>
+                            <span>{{name}}</span>
+                          </span>
+                        </label>
+                        {{/each}}
+                      </div>
+                    </div>
+                    {{/if}}
+                    <div class="col-12 col-md-6">
+                      <div class="input-range">
+                        <div class="input-range__label">
+                          <div class="input-label">Price</div>
+                          <div class="input-range__settings">
+                            AED
+                          </div>
+                        </div>
+                        <div class="input-range__fields">
+                          <div class="input-field">
+                            <input class="input sort-digits-input-mask" name="price-from" type="text"
+                              inputmode="numeric" placeholder="From" {{#if
+                              queryRentFilters.price_from}}value="{{queryRentFilters.price_from}}" {{/if}}>
+                          </div>
+                          <span>-</span>
+                          <div class="input-field">
+                            <input class="input sort-digits-input-mask" name="price-to" type="text" inputmode="numeric"
+                              placeholder="To" {{#if queryRentFilters.price_to}}value="{{queryRentFilters.price_to}}"
+                              {{/if}}>
+                          </div>
+                        </div>
+                        <div class="input-range__slider">
+                          <input type="text" name="area" class="input-range__slider-input"
+                            data-options='{"min":20000, "max":1000000, "step":20000 }' />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="input-range">
+                        <div class="input-range__label">
+                          <div class="input-label">Area / Size</div>
+                          <div class="input-range__settings">
+                            <div class="ch-box-wrap">
+                              {{#ifCond queryRentFilters.area_unit "==" "1"}}
+                              <label class="ch-box">
+                                <input type="radio" name="area-unit" value="1" checked>
+                                <span>Sq. Ft</span>
+                              </label>
+                              <label class="ch-box">
+                                <input type="radio" name="area-unit" value="0.09290304">
+                                <span>m <sup>2</sup></span>
+                              </label>
+                              {{else}}
+                              <label class="ch-box">
+                                <input type="radio" name="area-unit" value="1">
+                                <span>Sq. Ft</span>
+                              </label>
+                              <label class="ch-box">
+                                <input type="radio" name="area-unit" value="0.09290304" checked>
+                                <span>m <sup>2</sup></span>
+                              </label>
+                              {{/ifCond}}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="input-range__fields">
+                          <div class="input-field">
+                            <input class="input sort-digits-input-mask" name="area-from" type="text" inputmode="numeric"
+                              placeholder="From" {{#if
+                              queryRentFilters.area_from}}value="{{queryRentFilters.area_from}}" {{/if}}>
+                          </div>
+                          <span>-</span>
+                          <div class="input-field">
+                            <input class="input sort-digits-input-mask" name="area-to" type="text" inputmode="numeric"
+                              placeholder="To" {{#if queryRentFilters.area_to}}value="{{queryRentFilters.area_to}}"
+                              {{/if}}>
+                          </div>
+                        </div>
+                        <div class="input-range__slider">
+                          <input type="text" name="area" class="input-range__slider-input"
+                            data-options='{"min":700, "max":35000, "step":700}' />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="input-label">Bedrooms</div>
+                      <div class="ch-box-wrap ch-box-wrap_gap-small">
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" {{#ifCond queryRentFilters.bedroom_number 'includes' "Studio"
+                            }}checked{{/ifCond}} name="bedrooms" value="Studio">
+                          <span>Studio</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="bedrooms" value="1" {{#ifCond
+                            queryRentFilters.bedroom_number 'includes' "1" }}checked{{/ifCond}}>
+                          <span>1</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="bedrooms" value="2" {{#ifCond
+                            queryRentFilters.bedroom_number 'includes' "2" }}checked{{/ifCond}}>
+                          <span>2</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="bedrooms" value="3" {{#ifCond
+                            queryRentFilters.bedroom_number 'includes' "3" }}checked{{/ifCond}}>
+                          <span>3</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="bedrooms" value="4" {{#ifCond
+                            queryRentFilters.bedroom_number 'includes' "4" }}checked{{/ifCond}}>
+                          <span>4</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="bedrooms" value="5" {{#ifCond
+                            queryRentFilters.bedroom_number 'includes' "5" }}checked{{/ifCond}}>
+                          <span>5</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="bedrooms" value="6" {{#ifCond
+                            queryRentFilters.bedroom_number 'includes' "6" }}checked{{/ifCond}}>
+                          <span>6</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="bedrooms" value="7+" {{#ifCond
+                            queryRentFilters.bedroom_number 'includes' "7+" }}checked{{/ifCond}}>
+                          <span>7+</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="input-label">Bathrooms</div>
+                      <div class="ch-box-wrap ch-box-wrap_gap-small">
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="rooms" value="1" {{#ifCond
+                            queryRentFilters.bathroom_number 'includes' "1" }}checked{{/ifCond}}>
+                          <span>1</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="rooms" value="2" {{#ifCond
+                            queryRentFilters.bathroom_number 'includes' "2" }}checked{{/ifCond}}>
+                          <span>2</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="rooms" value="3" {{#ifCond
+                            queryRentFilters.bathroom_number 'includes' "3" }}checked{{/ifCond}}>
+                          <span>3</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="rooms" value="4" {{#ifCond
+                            queryRentFilters.bathroom_number 'includes' "4" }}checked{{/ifCond}}>
+                          <span>4</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="rooms" value="5" {{#ifCond
+                            queryRentFilters.bathroom_number 'includes' "5" }}checked{{/ifCond}}>
+                          <span>5</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="rooms" value="6" {{#ifCond
+                            queryRentFilters.bathroom_number 'includes' "6" }}checked{{/ifCond}}>
+                          <span>6</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="checkbox" name="rooms" value="7+" {{#ifCond
+                            queryRentFilters.bathroom_number 'includes' "7+" }}checked{{/ifCond}}>
+                          <span>7+</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="row row_y-gutter-xs">
+                        <div class="col-12 ">
+                          <div class="input-label">Rental period <span class="info-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 21" width="20" height="21"
+                                fill="none">
+                                <path stroke="#949494" stroke-linecap="round" stroke-width="1.5"
+                                  d="M10 18.833a8.333 8.333 0 1 0 0-16.667 8.333 8.333 0 0 0 0 16.667ZM10.008 13.834V10.5M10.008 7.167h-.009" />
+                              </svg>
+                              <span class="info-icon__text">
+                                Using the combination of upper and lower case letter, numbers and symbols.
+                              </span>
+                            </span></div>
+                          <div class="ch-box-wrap ch-box-wrap_gap-small">
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="RentPeriod" value="0" {{#ifCond
+                                queryRentFilters.rental_period "==" "0" }}checked{{/ifCond}}>
+                              <span>Any</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="RentPeriod" value="1" {{#ifCond
+                                queryRentFilters.rental_period "==" "1" }}checked{{/ifCond}}>
+                              <span>Monthly</span>
+                            </label>
+                            <label class="check-btn ch-box">
+                              <input type="radio" name="RentPeriod" value="2" {{#ifCond
+                                queryRentFilters.rental_period "==" "2" }}checked{{/ifCond}}>
+                              <span>Yearly</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="input-label">Maid room</div>
+                      <div class="ch-box-wrap ch-box-wrap_gap-small">
+                        <label class="check-btn ch-box">
+                          <input type="radio" name="maid-room" value="3" {{#ifCond queryRentFilters.maid_room "==" "3"
+                            }}checked{{/ifCond}}>
+                          <span>Any</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="radio" name="maid-room" value="1" {{#ifCond queryRentFilters.maid_room "==" "1"
+                            }}checked{{/ifCond}}>
+                          <span>No</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="radio" name="maid-room" value="2" {{#ifCond queryRentFilters.maid_room "==" "2"
+                            }}checked{{/ifCond}}>
+                          <span>Yes</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="input-label">Furnished</div>
+                      <div class="ch-box-wrap ch-box-wrap_gap-small">
+                        <label class="check-btn ch-box">
+                          <input type="radio" name="furnished" value="3" {{#ifCond queryRentFilters.furnished "==" "3"
+                            }}checked{{/ifCond}}>
+                          <span>Any</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="radio" name="furnished" value="1" {{#ifCond queryRentFilters.furnished "==" "1"
+                            }}checked{{/ifCond}}>
+                          <span>No</span>
+                        </label>
+                        <label class="check-btn ch-box">
+                          <input type="radio" name="furnished" value="2" {{#ifCond queryRentFilters.furnished "==" "2"
+                            }}checked{{/ifCond}}>
+                          <span>Yes</span>
+                        </label>
+                      </div>
+                    </div>
+                    {{#if propertyAmenities.show}}
+                    <div class="col-12">
+                      <div class="input-label">Amenities</div>
+                      <div class="more-text-wrap" data-read-more="Show more" data-read-less="Show less">
+                        <div class="ch-box-wrap ch-box-grid ch-box-grid_3">
+                          {{#each propertyAmenities.show}}
+                          <label class="check-btn ch-box">
+                            <input data-id="{{id}}" {{#ifCond ../queryRentFilters.amenities 'includes'
+                              id}}checked{{/ifCond}} type="checkbox" value="{{name}}" name="Amenities">
+                            <span>{{name}}</span>
+                          </label>
+                          {{/each}}
+                        </div>
+                        {{#if propertyAmenities.hide}}
+                        <div class="more-content">
+                          <div class="ch-box-wrap ch-box-grid ch-box-grid_3">
+                            {{#each propertyAmenities.hide}}
+                            <label class="check-btn ch-box">
+                              <input data-id="{{id}}" {{#ifCond ../queryRentFilters.amenities 'includes'
+                                id}}checked{{/ifCond}} type="checkbox" value="{{name}}" name="Amenities">
+                              <span>{{name}}</span>
+                            </label>
+                            {{/each}}
+                          </div>
+                        </div>
+                        <div class="more-text"><span>Show more</span><i></i></div>
+                        {{/if}}
+                      </div>
+                    </div>
+                    {{/if}}
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="form-buttons-bottom">
+          <button class="btn btn_secondary form-clear-all">
+            <span>Clear all</span>
+          </button>
+          <button class="btn btn_primary" id="apply_property_filters_detail">
+            <span>Search</span>
+          </button>
+        </div>
+      </div>
+      <button class="btn-close close-popup"></button>
+    </div>
+  </div>
+  {{/if}}
+  {{#if isAuction}}
+  <!-- auction-bid popup  -->
+  <div class="popup-content" data-rel="confirm-bid">
+    <div class="layer-close"></div>
+    <div class="popup-container">
+      <form class="popup-align default-popup">
+        <div class="default-popup__image">
+          <img src="/img/icons/popup/payment-cards.svg" alt="" loading="lazy">
+        </div>
+        <div class="default-popup__title">
+          <div class="title h4">
+            Make Offer
+          </div>
+        </div>
+        <div class="default-popup__content">
+          <div class="form-block">
+            <div class="row">
+              <div class="col-12">
+                <div class="input-field">
+                  <div class="input-label">Enter amount <span class="info-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 21" width="20" height="21" fill="none">
+                        <path stroke="#949494" stroke-linecap="round" stroke-width="1.5"
+                          d="M10 18.833a8.333 8.333 0 1 0 0-16.667 8.333 8.333 0 0 0 0 16.667ZM10.008 13.834V10.5M10.008 7.167h-.009">
+                        </path>
+                      </svg>
+                      <span class="info-icon__text">
+                        An initial up-front partial payment for the purchase
+                      </span>
+                    </span></div>
+                  <div class="input-field__input-wrap">
+                    <div class="input-field__inner-label">AED</div>
+                    <input id="auction-bid-input" required class="input group-digits-input-mask"
+                      data-trailing-zeroes="3" data-inputmask="'max':99999999999999999" name="totalAmount" type="text"
+                      placeholder="1000" required="" inputmode="decimal">
+                    <div class="input-error">Please fill in this field</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="default-popup__buttons">
+          <button class="btn btn_secondary close-popup" type="button"><span>Cancel</span></button>
+          <button class="btn btn_primary" id="confirm_bid_action" data-id="{{auction.id}}"><span>Confirm</span></button>
+        </div>
+      </form>
+      <button class="btn-close close-popup"></button>
+    </div>
+  </div>
+  <!-- confirm-auction-offer popup  -->
+  <div class="popup-content" data-rel="confirm-auction-offer">
+    <div class="layer-close"></div>
+    <div class="popup-container">
+      <div class="popup-align default-popup">
+        <div class="default-popup__image">
+          <img src="/img/icons/popup/money-question.svg" alt="" loading="lazy">
+        </div>
+        <div class="default-popup__title">
+          <div class="title h4">
+            Confirm this offer
+          </div>
+        </div>
+        <div class="default-popup__content">
+          <div class="popup-confirm-auction">
+            <div class="user-block">
+              {{#if highestBidUser.user.avatar}}
+              <div class="image-cover image-round">
+                <picture>
+                  <source id="highest_offer_pic" srcset="{{{imagePath highestBidUser.user.avatar null}}}"
+                    type="image/webp">
+                  <img id="highest_offer_img" src="{{{imagePath highestBidUser.user.avatar null}}}" alt=""
+                    loading="lazy">
+                </picture>
+              </div>
+              {{/if}}
+              <div class="title h4" id="highest_offer_name">{{highestBidUser.user.first_name}}
+                {{highestBidUser.user.last_name}}</div>
+              {{#if highestBidUser.bid}}
+              <div class="text-l">Offer: <span class="fw-500" id="highest_offer_bid">{{formatPrice
+                  highestBidUser.bid}}</span></div>
+              {{else}}
+              <div class="text-l">Offer: <span class="fw-500" id="highest_offer_bid">0 AED</span></div>
+              {{/if}}
+            </div>
+          </div>
+          <div class="text-m text-center">
+            If confirmed, auction will be complited.
+          </div>
+        </div>
+        <div class="default-popup__buttons">
+          <button class="btn btn_secondary close-popup" type="button"><span>Cancel</span></button>
+          <button class="btn btn_primary auction_payment_button" id="validate_payment"
+            data-property-id="{{property.id}}" data-offer-id="{{highestBidUser.id}}"
+            data-order-type="confirm-booking"><span>Confirm</span></button>
+        </div>
+      </div>
+      <button class="btn-close close-popup"></button>
+    </div>
+  </div>
+  <!-- confirm-leave-auction popup  -->
+  <div class="popup-content" data-rel="confirm-leave-auction">
+    <div class="layer-close"></div>
+    <div class="popup-container">
+      <div class="popup-align default-popup">
+        <div class="default-popup__image">
+          <img src="/img/icons/popup/close.svg" alt="" loading="lazy">
+        </div>
+        <div class="default-popup__title">
+          <div class="title h4">
+            Confirm leave auction
+          </div>
+          <div class="text-m">If confirmed, your existing offer will be canceled and payment will be automatically
+            refunded</div>
+        </div>
+        <div class="default-popup__buttons">
+          <button class="btn btn_secondary close-popup"><span>Cancel</span></button>
+          <button class="btn btn_primary" id="leave_auction_action"
+            data-id="{{auction.id}}"><span>Confirm</span></button>
+        </div>
+      </div>
+      <button class="btn-close close-popup"></button>
+    </div>
+  </div>
+  <!-- confirm-stop-auction popup  -->
+  <div class="popup-content" data-rel="confirm-stop-auction">
+    <div class="layer-close"></div>
+    <div class="popup-container">
+      <div class="popup-align default-popup">
+        <div class="default-popup__image">
+          <img src="/img/icons/popup/close.svg" alt="" loading="lazy">
+        </div>
+        <div class="default-popup__title">
+          <div class="title h4">
+            Confirm Cancel Auction
+          </div>
+          <div class="text-m">If confirmed, all the existing offers for your property will be canceled</div>
+        </div>
+        <div class="default-popup__buttons">
+          <button class="btn btn_secondary close-popup"><span>Cancel</span></button>
+          <button class="btn btn_primary" id="stop_auction_action"
+            data-id="{{auction.id}}"><span>Confirm</span></button>
+        </div>
+      </div>
+      <button class="btn-close close-popup"></button>
+    </div>
+  </div>
+  {{/if}}
+</div>

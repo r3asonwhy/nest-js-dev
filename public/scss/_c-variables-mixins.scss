@@ -1,0 +1,129 @@
+@mixin centerAbsolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin beforeFull {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin objectFit {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  content-visibility: auto;
+}
+
+@mixin lines($num) {
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin colorSvg($color) {
+  color: $color;
+
+  *[stroke] {
+    stroke: currentColor;
+  }
+
+  *[fill] {
+    fill: currentColor;
+  }
+}
+
+@function rem($px) {
+  $result: calc($px / 16) + rem;
+  @return $result;
+}
+
+@function em($px) {
+  $result: calc($px / 16) + em;
+  @return $result;
+}
+
+@mixin minMedia($size) {
+  @if $size==sm {
+    @media (min-width: 576px) {
+      @content;
+    }
+  } @else if $size==md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $size==lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $size==xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  } @else if $size==xxl {
+    @media (min-width: 1441px) {
+      @content;
+    }
+  } @else if $size==xxxl {
+    @media (min-width: 1681px) {
+      @content;
+    }
+  } @else if $size==sl {
+    @media (min-width: 2080px) {
+      @content;
+    }
+  } @else {
+    @media (min-width: "#{$size}px") {
+      @content;
+    }
+  }
+}
+
+@mixin maxMedia($size) {
+  @if $size==sm {
+    @media (max-width: 575px) {
+      @content;
+    }
+  } @else if $size==md {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $size==lg {
+    @media (max-width: 991px) {
+      @content;
+    }
+  } @else if $size==xl {
+    @media (max-width: 1199px) {
+      @content;
+    }
+  } @else if $size==xxl {
+    @media (max-width: 1440px) {
+      @content;
+    }
+  } @else if $size==xxxl {
+    @media (max-width: 1680px) {
+      @content;
+    }
+  } @else {
+    @media (max-width: "#{$size}px") {
+      @content;
+    }
+  }
+}
+
+@mixin hoverMedia() {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}

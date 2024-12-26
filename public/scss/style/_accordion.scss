@@ -1,0 +1,64 @@
+/*--------------------*/
+/* + Accordion        */
+/*--------------------*/
+.accordion {
+  position: relative;
+  z-index: 1;
+
+  >*+* {
+    margin-top: 0.5rem;
+  }
+}
+
+.accordion-item {
+  --padding-acc: calc(var(--sp-sm) * 1.2);
+  position: relative;
+  padding: var(--padding-acc);
+  border-radius: var(--rd-2);
+  box-shadow: var(--box-shadow);
+}
+
+.accordion-title {
+  position: relative;
+  cursor: pointer;
+  color: var(--clr-title);
+
+  font-size: var(--h5);
+  line-height: 1.2em;
+  font-weight: 600;
+  color: var(--clr-title);
+
+  gap: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  transition: var(--transition-1);
+
+  svg {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  &.is-active {
+    svg {
+      transform: rotateX(-180deg);
+    }
+  }
+}
+
+.accordion-inner {
+  display: none;
+  padding-top: var(--sp-xs);
+}
+
+@include minMedia(xl) {
+  .accordion-title:hover {
+    color: var(--clr-primary);
+  }
+}
+
+@include maxMedia(md) {
+  .accordion-item {
+    --padding-acc: var(--sp-xs);
+  }
+}

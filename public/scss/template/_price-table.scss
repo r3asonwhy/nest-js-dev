@@ -1,0 +1,41 @@
+/*--------------------*/
+/* + Price table      */
+/*--------------------*/
+.pr-table {
+    border-radius: var(--rd-1);
+    border: rem(1) solid var(--clr-border);
+}
+
+.pr-tr {
+    font-size: var(--text);
+    line-height: 1.33333em;
+    font-weight: 400;
+    color: var(--clr-text);
+    padding: var(--sp-xs);
+    gap: var(--sp-xs);
+    display: grid;
+    grid-template-columns: 1fr 20%;
+
+    &+& {
+        border-top: rem(1) solid var(--clr-border);
+    }
+}
+
+.pr-head {
+    color: var(--clr-black);
+    font-weight: 600;
+    background-color: var(--clr-light-grey);
+}
+
+.pr-td {
+
+    &:last-child {
+        text-align: right;
+    }
+}
+
+@include maxMedia(sm) {
+    .pr-tr {
+        font-size: var(--text-s);
+    }
+}

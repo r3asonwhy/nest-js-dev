@@ -23,7 +23,9 @@ jobs:
           node-version: 'latest'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm install @nestjs/cli @nestjs/core
 
   # Job to deploy to AWS Elastic Beanstalk on push to main
   deploy:
@@ -44,7 +46,9 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm install @nestjs/cli @nestjs/core
 
       # Log current directory and list files before build
       - name: Before Build - Check Current Directory and Files

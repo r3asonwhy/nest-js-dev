@@ -22,7 +22,7 @@ export class AppConfigService {
   }
 
   get port(): number {
-    return Number(this.configService.get<number>('app.port') ?? 9000);
+    return Number(this.configService.get<number>('app.port') ?? 8080);
   }
 
   get host(): string {

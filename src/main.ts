@@ -49,8 +49,8 @@ async function bootstrap() {
   app.setViewEngine('hbs');
 
   // Registration of partials
-  // const partialsPath = join(__dirname, '..', 'views', 'partials');
-  // registerPartials(partialsPath);
+  const partialsPath = join(__dirname, '..', 'views', 'partials');
+  registerPartials(partialsPath);
 
   Object.keys(helpers).forEach((key) => {
     handlebars.registerHelper(key, helpers[key]);

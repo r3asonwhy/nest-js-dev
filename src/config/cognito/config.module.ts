@@ -8,5 +8,5 @@ import { CognitoConfigService } from './config.service';
   providers: [CognitoConfigService],
   exports: [CognitoConfigService],
 })
-//
+
 export class CognitoConfigModule {}
